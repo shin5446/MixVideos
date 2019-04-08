@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  before_action :set_video, only: %i[show edit update destroy]
   def index
     @videos = Video.all
   end
@@ -15,16 +16,12 @@ class VideosController < ApplicationController
     end
   end
 
-  def show
-    @video = Video.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @video = Video.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @video = Video.find(params[:id])
+
     if @video.update(video_params)
       redirect_to videos_path, notice: "動画を編集しました！"
     else
@@ -39,5 +36,9 @@ class VideosController < ApplicationController
 
   def video_params
     params.require(:video).permit %i[title content image image_cache]
+  end
+
+  def set_video
+    @video = Video.find(params[:id])
   end
 end
