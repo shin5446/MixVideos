@@ -1,0 +1,19 @@
+<h1>動画一覧</h1>
+
+<%= link_to '新しく動画を投稿する', new_video_path, class: "btn btn-primary btn-sm" %>
+
+<table class = "table table-hover" >
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+    <th>作成日時</th>
+  </tr>
+
+  <% @videos.each do |video| %>
+    <tr>
+      <td><%= video.title %></td>
+      <td><%= video.content %></td>
+      <td><%= video.created_at %></td>
+    </tr>
+  <% end %>
+</table>
