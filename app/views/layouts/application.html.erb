@@ -10,6 +10,33 @@
   </head>
 
   <body>
+  <header class="">
+  <nav class="navbar navbar-expand-sm bg-light">
+    <ul class="navbar-nav text-dark">
+      <% if user_signed_in? %>
+        <li class="nav-item" >
+          <%= link_to current_user.email, user_path(current_user.id), class: "nav-link text-dark" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "動画一覧", videos_path, class: "nav-link text-dark" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-dark"  %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "ログイン", new_user_session_path, class: "nav-link text-dark"  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "新規登録", new_user_registration_path, class: "nav-link text-dark"  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "動画一覧", videos_path, class: "nav-link text-dark"  %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
     <div class = "container">
         <% flash.each do |key, value| %>
           <% if key == "danger" %>
