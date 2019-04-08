@@ -14,6 +14,7 @@
       <td><%= video.title %></td>
       <td><%= video.content %></td>
       <td><%= video.created_at %></td>
+      <td><%= link_to '詳細を確認する', video_path(video.id) ,class: "btn btn-outline-dark btn-sm" %></td>
     </tr>
   <% end %>
 </table>
