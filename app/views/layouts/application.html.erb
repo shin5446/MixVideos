@@ -10,6 +10,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class = "container">
+        <% flash.each do |key, value| %>
+          <% if key == "danger" %>
+            <%= content_tag(:div, value, class: "#{key} alert alert-danger") %>
+          <% else %>
+            <%= content_tag(:div, value, class: "#{key} alert alert-success") %>
+          <% end %>
+        <% end %>
+        <%= yield %>
+    </div>
   </body>
 </html>
