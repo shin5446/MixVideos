@@ -1,11 +1,18 @@
 class VideosController < ApplicationController
   def index
+    @videos = Video.all
   end
 
   def new
+    @video = Vide.new
   end
 
   def create
+    if @video.save
+      redirect_to videos_path flash[:success] = "登録しました"
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -18,5 +25,11 @@ class VideosController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def video_params
+    params.require(:video).permit %i[title content image image_cache]
   end
 end
