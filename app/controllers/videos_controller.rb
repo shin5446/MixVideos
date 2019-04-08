@@ -20,9 +20,16 @@ class VideosController < ApplicationController
   end
 
   def edit
+    @video = Video.find(params[:id])
   end
 
   def update
+    @video = Video.find(params[:id])
+    if @video.update(video_params)
+      redirect_to videos_path, notice: "動画を編集しました！"
+    else
+      render 'edit'
+    end
   end
 
   def destroy
