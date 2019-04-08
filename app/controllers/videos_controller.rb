@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[edit update destroy]
   def index
     @videos = Video.all
   end
