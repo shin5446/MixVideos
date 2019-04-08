@@ -10,7 +10,7 @@ class VideosController < ApplicationController
 
   def create
     if Video.create(video_params)
-      redirect_to videos_path flash[:success] = "登録しました"
+      redirect_to videos_path flash[:success] = '登録しました'
     else
       render 'new'
     end
@@ -21,9 +21,8 @@ class VideosController < ApplicationController
   def edit; end
 
   def update
-
     if @video.update(video_params)
-      redirect_to videos_path, notice: "動画を編集しました！"
+      redirect_to videos_path, notice: '動画を編集しました！'
     else
       render 'edit'
     end
@@ -31,7 +30,7 @@ class VideosController < ApplicationController
 
   def destroy
     @video.destroy
-    redirect_to videos_path, notice:"投稿を削除しました！"
+    redirect_to videos_path, notice: '投稿を削除しました！'
   end
 
   private
