@@ -30,6 +30,8 @@ class VideosController < ApplicationController
   end
 
   def destroy
+    @video.destroy
+    redirect_to videos_path, notice:"投稿を削除しました！"
   end
 
   private

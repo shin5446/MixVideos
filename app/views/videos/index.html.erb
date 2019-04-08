@@ -16,6 +16,7 @@
       <td><%= video.created_at %></td>
       <td><%= link_to '詳細を確認する', video_path(video.id) ,class: "btn btn-outline-dark btn-sm" %></td>
       <td><%= link_to "動画を編集する", edit_video_path(video.id), method: :get, class: "btn btn-outline-dark btn-sm" %></td>
+      <td><%= link_to '動画を削除する', video_path(video.id), method: :delete,data: { confirm: '本当に削除していいですか？'}, class: "btn btn-outline-danger btn-sm" %></td>
     </tr>
   <% end %>
 </table>
