@@ -1,0 +1,26 @@
+<%= form_with(model: @video,local: true ) do |form| %>
+  <% if @video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @video.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      　<% @video.errors.full_messages.each do |msg| %>
+      　　<li><%= msg %></li>
+      　<% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :タイトル%>
+    <%= form.text_field :title, class: "form-control col-xs-4" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :動画の説明%>
+    <%= form.text_area :content, class: "form-control" %>
+  </div>
+
+  <div class="actions" >
+    <%= form.submit nil, class: "btn btn-outline-success btn-sm" %>
+  </div>
+<% end %>
