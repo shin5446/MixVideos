@@ -23,6 +23,8 @@ gem 'carrierwave'
 gem 'kaminari', '~> 0.17.0'
 # デザイン関連
 gem 'bootstrap'
+# メッセージの日本語化
+gem 'rails-i18n'
 
 # デバッグ関連
 group :development, :test do
