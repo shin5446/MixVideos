@@ -8,7 +8,7 @@ class VideosController < ApplicationController
   end
 
   def create
-    if @video.save
+    if Video.create(video_params)
       redirect_to videos_path flash[:success] = "登録しました"
     else
       render 'new'
