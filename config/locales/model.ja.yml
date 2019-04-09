@@ -4,13 +4,16 @@ ja:
       video: "動画"
       user: "ユーザー"
     attributes:
-      blog:
+      video:
         title: "タイトル"
         content: "内容"
+        video_url: "動画のURL"
       user:
         title: "タイトル"
         name: "名前"
         email: "メールアドレス"
+        icon: "ユーザーアイコン"
+        introduction: "自己紹介"
         current_password: "現在のパスワード"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
