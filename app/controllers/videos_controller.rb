@@ -18,7 +18,9 @@ class VideosController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @like = current_user.likes.find_by(video_id: @video.id)
+  end
 
   def edit; end
 
@@ -38,7 +40,7 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit %i[title content image image_cache]
+    params.require(:video).permit %i[title content image image_cache user_id video_id]
   end
 
   def set_video

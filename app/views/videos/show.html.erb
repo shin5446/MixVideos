@@ -9,4 +9,11 @@
     <td><%= @video.content %></td>
   </tr>
 </table>
+<% unless @video.user_id == current_user.id %>
+  <% if @like.present? %>
+    <%= link_to 'いいね解除',like_path(id: @like.id), method: :delete, class: 'btn btn-danger btn-sm' %>
+  <% else %>
+    <%= link_to 'いいね',likes_path(video_id: @video.id), method: :post, class: 'btn btn-primary btn-sm' %>
+  <% end %>
+<% end %>
 <%= link_to '戻る', videos_path, class: "btn btn-outline-info btn-sm" %>

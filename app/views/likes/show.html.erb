@@ -1,0 +1,6 @@
+<h1>お気に入り</h1>
+
+  <% @likes.each do |video| %>
+    <p>動画:<%= video.image.url %></p>
+    <p>投稿者:<%= video.user.name %></p>
+  <% end %>
