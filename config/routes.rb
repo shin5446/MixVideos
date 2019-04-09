@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :users, only: %i[show]
+
   # 動画関連
   resources :videos
   if Rails.env.development?
