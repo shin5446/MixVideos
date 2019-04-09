@@ -4,6 +4,7 @@
 
 <table class = "table table-hover" >
   <tr>
+    <th>投稿者</th>
     <th>タイトル</th>
     <th>内容</th>
     <th>作成日時</th>
@@ -11,6 +12,7 @@
 
   <% @videos.each do |video| %>
     <tr>
+      <td><%= video.user.name %></td>
       <td><%= video.title %></td>
       <td><%= video.content %></td>
       <td><%= video.created_at %></td>
