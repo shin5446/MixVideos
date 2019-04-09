@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  resources :users, only: [:show]
+  root 'videos#index'
+  # ユーザー関連
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  root 'videos#index'
+  resources :users, only: %i[show]
+  # 動画関連
   resources :videos
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
