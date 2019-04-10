@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_10_060207) do
+ActiveRecord::Schema.define(version: 2019_04_10_090824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
@@ -43,6 +49,15 @@ ActiveRecord::Schema.define(version: 2019_04_10_060207) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "video_genres", force: :cascade do |t|
+    t.bigint "genre_id"
+    t.bigint "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_video_genres_on_genre_id"
+    t.index ["video_id"], name: "index_video_genres_on_video_id"
+  end
+
   create_table "videos", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -54,5 +69,7 @@ ActiveRecord::Schema.define(version: 2019_04_10_060207) do
     t.index ["user_id"], name: "index_videos_on_user_id"
   end
 
+  add_foreign_key "video_genres", "genres"
+  add_foreign_key "video_genres", "videos"
   add_foreign_key "videos", "users"
 end
