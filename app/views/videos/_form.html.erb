@@ -11,13 +11,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :タイトル%>
+    <%= form.label :タイトル %>
     <%= form.text_field :title, class: "form-control col-xs-4" %>
   </div>
 
   <div class="field">
-    <%= form.label :動画の説明%>
+    <%= form.label :動画の説明 %>
     <%= form.text_area :content, class: "form-control" %>
+  </div>
+
+ <div class="field">
+    <%= form.label :ジャンル　%><br>
+    <% Genre.all.each do |genre| %>
+      <%= form.check_box :genre_ids, { multiple: true, checked: genre[:checked], disabled: genre[:disabled], include_hidden: false }, genre[:id] %>
+      <label style = "background-color: aquamarine"><%= genre.name %></label>
+    <% end %>
   </div>
 
   <div class="actions" >
