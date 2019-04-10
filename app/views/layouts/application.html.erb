@@ -13,6 +13,11 @@
   <header class="">
   <nav class="navbar navbar-expand-sm bg-light">
     <ul class="navbar-nav text-dark">
+      <% if current_user.try(:admin?) %>
+        <li class="nav-item">
+          <%= link_to "管理者メニュー", "/admin", class: "nav-link text-danger" %>
+        </li>
+      <% end %>
       <% if user_signed_in? %>
         <li class="nav-item" >
           <%= link_to "#{current_user.name}のページ", user_path(current_user.id), class: "nav-link text-dark" %>
