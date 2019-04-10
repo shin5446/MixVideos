@@ -17,6 +17,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails_admin', '~> 1.3'
+gem 'cancancan'
 # 画像アップロード関連
 gem 'mini_magick', '~> 4.8'
 gem 'carrierwave'
