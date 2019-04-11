@@ -11,7 +11,7 @@
   </tr>
     <th>ジャンル</th>
     <% @video.genres.each do |genre| %>
-      <td><%= genre.name %></td>
+      <td class="badge badge-primary p-1"><%= genre.name %></td>
     <% end %>
     </tr>
 </table>
