@@ -9,6 +9,10 @@
     <td><%= @video.content %></td>
   </tr>
   </tr>
+    <th>動画</th>
+    <td><%= @video.video_url %></td>
+  </tr>
+  </tr>
     <th>ジャンル</th>
     <% @video.genres.each do |genre| %>
       <td class="badge badge-primary p-1"><%= genre.name %></td>
