@@ -40,7 +40,7 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit %i[title content image image_cache user_id video_id]
+    params.require(:video).permit(:title, :content, :image, :image_cache, :user_id, :video_id, genre_ids: [])
   end
 
   def set_video
