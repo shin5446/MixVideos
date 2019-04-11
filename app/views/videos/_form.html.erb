@@ -1,31 +1,35 @@
-<%= form_with(model: @video,local: true ) do |form| %>
-  <% if @video.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @video.errors.count %>件のエラーがあります。</h2>
-      <ul>
-      　<% @video.errors.full_messages.each do |msg| %>
-      　　<li><%= msg %></li>
-      　<% end %>
-      </ul>
+<div class="form">
+  <%= form_with(model: @video,local: true ) do |form| %>
+    <% if @video.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @video.errors.count %>件のエラーがあります。</h2>
+        <ul>
+        　<% @video.errors.full_messages.each do |msg| %>
+        　　<li><%= msg %></li>
+        　<% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-wrapper">
+      <div class="form-item">
+        <%= form.label :タイトル %>
+        <%= form.text_field :title, class: "form-control w-50 my-2" %>
+      </div>
+
+      <div class="form-item">
+        <%= form.label :動画の説明 %>
+        <%= form.text_area :content, class: "form-control w-50 my-2", rows: 5 %>
+      </div>
+
+      <div class="form-item my-2">
+        <%= form.label :ジャンル %><br>
+        <%= form.collection_check_boxes :genre_ids, Genre.all, :id, :name, include_hidden: false %>
+      </div>
+
+      <div class="actions" >
+        <%= form.submit nil, class: "btn btn-outline-success btn-sm my-2" %>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :タイトル %>
-    <%= form.text_field :title, class: "form-control col-xs-4" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :動画の説明 %>
-    <%= form.text_area :content, class: "form-control" %>
-  </div>
-
-  <div class="form-item">
-    <%= form.label :ジャンル %><br>
-    <%= form.collection_check_boxes :genre_ids, Genre.all, :id, :name, include_hidden: false %>
-  </div>
-
-  <div class="actions" >
-    <%= form.submit nil, class: "btn btn-outline-success btn-sm" %>
-  </div>
-<% end %>
+</div>
