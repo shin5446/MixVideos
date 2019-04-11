@@ -7,7 +7,7 @@
     <th>投稿者</th>
     <th>タイトル</th>
     <th>内容</th>
-    <th>作成日時</th>
+    <th>ジャンル</th>
   </tr>
 
   <% @videos.each do |video| %>
@@ -15,7 +15,9 @@
       <td><%= video.user.name %></td>
       <td><%= video.title %></td>
       <td><%= video.content %></td>
-      <td><%= video.created_at %></td>
+      <% video.genres.each do |genre| %>
+        <td><%= genre.name %></td>
+      <% end %>
       <td><%= link_to '詳細', video_path(video.id) ,class: "btn btn-outline-dark btn-sm" %></td>
       <td><%= link_to "編集", edit_video_path(video.id), method: :get, class: "btn btn-outline-dark btn-sm" %></td>
       <td><%= link_to '削除', video_path(video.id), method: :delete,data: { confirm: '本当に削除していいですか？'}, class: "btn btn-outline-danger btn-sm" %></td>

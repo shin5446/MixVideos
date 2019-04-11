@@ -8,6 +8,12 @@
     <th>内容</th>
     <td><%= @video.content %></td>
   </tr>
+  </tr>
+    <th>ジャンル</th>
+    <% @video.genres.each do |genre| %>
+      <td><%= genre.name %></td>
+    <% end %>
+    </tr>
 </table>
 <% unless @video.user_id == current_user.id %>
   <% if @like.present? %>
