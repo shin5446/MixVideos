@@ -8,16 +8,16 @@
     <th>内容</th>
     <td><%= @video.content %></td>
   </tr>
-  </tr>
+  <tr>
     <th>動画</th>
-    <td><%= @video.video_url %></td>
+    <td><iframe width="560" height="315" src=<%= @url %> ></iframe></td>
   </tr>
-  </tr>
-    <th>ジャンル</th>
+    <th>ジャンル<th>
     <% @video.genres.each do |genre| %>
       <td class="badge badge-primary p-1"><%= genre.name %></td>
     <% end %>
-    </tr>
+  </tr>
+
 </table>
 <% unless @video.user_id == current_user.id %>
   <% if @like.present? %>
