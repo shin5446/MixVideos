@@ -46,7 +46,13 @@ group :development do
 end
 
 group :test do
+  # Rspec関連
   gem 'capybara', '>= 2.15'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'launchy'
+  gem 'spring-commands-rspec'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
