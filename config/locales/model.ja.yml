@@ -7,7 +7,7 @@ ja:
       video:
         title: "タイトル"
         content: "内容"
-        video_url: "動画のURL"
+        url: "動画のURL"
       user:
         title: "タイトル"
         name: "名前"
