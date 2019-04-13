@@ -17,7 +17,6 @@ FactoryBot.define do
   factory :fourth_video, class: Video do
     title { 'test_video_04' }
     content { 'samplesample' }
-
   end
 
   factory :user_video, class: Video do
