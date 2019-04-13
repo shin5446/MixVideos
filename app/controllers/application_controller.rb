@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   # deviseコントローラーにストロングパラメータを追加
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  include VideosHelper
+
   protected
 
   def configure_permitted_parameters

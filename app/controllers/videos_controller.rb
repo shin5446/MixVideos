@@ -20,7 +20,7 @@ class VideosController < ApplicationController
 
   def show
     @like = current_user.likes.find_by(video_id: @video.id)
-    @url = @video.video_url.gsub(%r{https://www.youtube.com/watch\?v=(\w+)}) { "https://www.youtube.com/embed/#{Regexp.last_match(1)}" }
+    @url = embed_url(@video)
   end
 
   def edit; end

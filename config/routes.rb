@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :videos
 
   # いいね関連
-  resources :likes, only: %i[create destroy]
+  resources :likes, only: %i[show create destroy]
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
