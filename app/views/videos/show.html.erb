@@ -19,7 +19,7 @@
   </tr>
 
 </table>
-<% unless @video.user_id == current_user.id %>
+<% unless @video.user_id == current_user.try(:id) %>
   <% if @like.present? %>
     <%= link_to 'いいね解除',like_path(id: @like.id), method: :delete, class: 'btn btn-danger btn-sm' %>
   <% else %>

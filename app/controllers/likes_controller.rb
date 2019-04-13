@@ -4,7 +4,7 @@ class LikesController < ApplicationController
   end
 
   def create
-    like = current_user.likes.create(video_id: params[:video_id])
+    like = current_user.likes.create(video_id: params[:video_id]) unless current_user.nil?
     redirect_to videos_url flash[:success] = "#{like.video.user.name}さんの動画をいいねしました"
   end
 
