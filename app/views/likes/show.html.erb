@@ -1,7 +1,22 @@
-<h1>お気に入り動画</h1>
-
-  <% @likes.each do |like| %>
-    <p>動画:<iframe width="560" height="315" src=<%= embed_url(like) %> ></iframe></p>
-    <p>タイトル:<%= like.title %></p>
-    <p>投稿者:<%= like.user.name %></p>
-  <% end %>
+<div class="container">
+  <div class="show-wrapper">
+    <h1 class="mb-5">お気に入り動画</h1>
+      <table class="table table-hover">
+        <% @likes.each do |like| %>
+        <tr>
+          <td>タイトル</td>
+          <td><%= like.title %></td>
+        </tr>
+        <tr>
+          <td>投稿者</td>
+          <td><%= like.user.name %></td>
+        </tr>
+        <tr>
+          <td>動画</td>
+          <td><iframe width="560" height="315" src=<%= embed_url(like) %> ></iframe></td>
+        </tr>
+        <% end %>
+      </table>
+  </div>
+  <%= link_to "戻る", user_path(current_user.id), class: "btn btn-light" %>
+</div>
