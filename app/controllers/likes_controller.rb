@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!, only: %i[create destroy]
   def show
     @likes = current_user.like_videos
   end
