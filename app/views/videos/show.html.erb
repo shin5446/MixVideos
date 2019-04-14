@@ -1,29 +1,41 @@
-<h1>動画詳細画面</h1>
+<div class="container">
+  <h1>動画詳細画面</h1>
 
-<table class = "table table-hover" >
-  <tr>
-    <th>タイトル</th>
-    <td><%= @video.title %></td>
-  </tr>
-    <th>内容</th>
-    <td><%= @video.content %></td>
-  </tr>
-  <tr>
-    <th>動画</th>
-    <td><iframe width="560" height="315" src=<%= @url %> ></iframe></td>
-  </tr>
-    <th>ジャンル<th>
-    <% @video.genres.each do |genre| %>
-      <td class="badge badge-primary p-1"><%= genre.name %></td>
+  <p id="notice"><%= notice %></p>
+
+  <table class = "table table-hover" >
+    <tr>
+      <th>タイトル</th>
+      <td><%= @video.title %></td>
+    </tr>
+      <th>内容</th>
+      <td><%= @video.content %></td>
+    </tr>
+    <tr>
+      <th>動画</th>
+      <td><iframe width="560" height="315" src=<%= @url %> ></iframe></td>
+    </tr>
+      <th>ジャンル<th>
+      <% @video.genres.each do |genre| %>
+        <td class="badge badge-primary p-1"><%= genre.name %></td>
+      <% end %>
+    </tr>
+
+  </table>
+  <% unless @video.user_id == current_user.try(:id) %>
+    <% if @like.present? %>
+      <%= link_to 'いいね解除',like_path(id: @like.id), method: :delete, class: 'btn btn-danger btn-sm' %>
+    <% else %>
+      <%= link_to 'いいね',likes_path(video_id: @video.id), method: :post, class: 'btn btn-primary btn-sm' %>
     <% end %>
-  </tr>
-
-</table>
-<% unless @video.user_id == current_user.try(:id) %>
-  <% if @like.present? %>
-    <%= link_to 'いいね解除',like_path(id: @like.id), method: :delete, class: 'btn btn-danger btn-sm' %>
-  <% else %>
-    <%= link_to 'いいね',likes_path(video_id: @video.id), method: :post, class: 'btn btn-primary btn-sm' %>
   <% end %>
-<% end %>
-<%= link_to '戻る', videos_path, class: "btn btn-outline-info btn-sm" %>
+  <p>コメント一覧</p>
+    <div id="comments_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments, video: @video } %>
+    </div>
+
+    <%= render partial: 'comments/form', locals: { comment: @comment, video: @video } %>
+
+  <%= link_to '編集', edit_video_path(@video), class: "btn btn-outline-info btn-sm" %>
+  <%= link_to '戻る', videos_path, class: "btn btn-outline-info btn-sm" %>
+</div>

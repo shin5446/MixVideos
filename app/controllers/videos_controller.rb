@@ -21,6 +21,8 @@ class VideosController < ApplicationController
   def show
     @like = current_user.likes.find_by(video_id: @video.id) unless current_user.nil?
     @url = embed_url(@video)
+    @comments = @video.comments
+    @comment = @video.comments.build
   end
 
   def edit; end

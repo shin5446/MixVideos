@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.js { render :index }
       else
+        raise
         format.html { redirect_to video_path(@video), notice: '投稿できませんでした...' }
       end
     end
