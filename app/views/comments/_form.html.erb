@@ -11,11 +11,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.label :コメントを作成する %>
+    <%= form.text_area :content, class: "form-control w-50 my-2", rows: 3 %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit nil, class: 'btn btn-primary btn-sm my-2' %>
   </div>
 <% end %>
