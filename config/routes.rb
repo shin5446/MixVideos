@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   resources :users, only: %i[show]
 
   # 動画関連
-  resources :videos
+  resources :videos do
+    # 動画に対するコメント関連
+    resources :comments
+  end
 
   # いいね関連
   resources :likes, only: %i[show create destroy]
