@@ -28,12 +28,19 @@ gem 'bootstrap'
 # メッセージの日本語化
 gem 'rails-i18n'
 
-# デバッグ関連
 group :development, :test do
+  # デバッグ関連
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  # Rspec関連
+  gem 'capybara', '>= 2.15'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'launchy'
+  gem 'spring-commands-rspec'
 end
 
 group :development do
@@ -46,13 +53,6 @@ group :development do
 end
 
 group :test do
-  # Rspec関連
-  gem 'capybara', '>= 2.15'
-  gem 'database_cleaner'
-  gem 'factory_bot_rails'
-  gem 'rspec-rails'
-  gem 'launchy'
-  gem 'spring-commands-rspec'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
