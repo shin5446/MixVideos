@@ -1,9 +1,9 @@
-<ul>
-  <% comments.each do |comment| %>
-    <% if comment.id.present? %>
-      <li>
-        <p><%= comment.content %></p>
-      </li>
+<% comments.each do |comment| %>
+  <% unless comment.id.nil? %>
+    <p><%= link_to "#{comment.user.name}さん", user_path(comment.user.id) %></p>
+    <p>コメント：<%= comment.content %></p>
+    <% if comment.user == current_user %>
+      <p><%= link_to 'コメントを削除する', video_comment_path(comment.video_id, comment.id), method: :delete, remote: true, class:"btn btn-danger btn-sm" %></p>
     <% end %>
   <% end %>
-</ul>
+<% end %>
