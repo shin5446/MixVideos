@@ -3,7 +3,8 @@ class VideosController < ApplicationController
   before_action :authenticate_user!, only: %i[edit update destroy]
   before_action :correct_user, only: %i[edit destroy]
   def index
-    @videos = Video.all
+    @q = Video.ransack(params[:q])
+    @videos = @q.result(distinct: true)
   end
 
   def new
