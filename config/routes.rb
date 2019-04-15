@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   # いいね関連
   resources :likes, only: %i[show create destroy]
 
+  # フォローフォロワー関連
+  resources :relationships, only: %i[create destroy]
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
