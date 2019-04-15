@@ -2,21 +2,25 @@
   <div class="show-wrapper">
     <h1 class="mb-5">お気に入り動画</h1>
       <table class="table table-hover">
-        <% @likes.each do |like| %>
-        <tr>
-          <td>タイトル</td>
-          <td><%= like.title %></td>
-        </tr>
-        <tr>
-          <td>投稿者</td>
-          <td><%= like.user.name %></td>
-        </tr>
-        <tr>
-          <td>動画</td>
-          <td><iframe width="560" height="315" src=<%= embed_url(like) %> ></iframe></td>
-        </tr>
+        <% unless @likes.first == nil %>
+          <% @likes.each do |like| %>
+          <tr>
+            <td>タイトル</td>
+            <td><%= like.title %></td>
+          </tr>
+          <tr>
+            <td>投稿者</td>
+            <td><%= like.user.name %></td>
+          </tr>
+          <tr>
+            <td>動画</td>
+            <td><iframe width="560" height="315" src=<%= embed_url(like) %> ></iframe></td>
+          </tr>
+          <% end %>
+        <% else %>
+          <p>表示する動画はありません</p>
         <% end %>
       </table>
   </div>
-  <%= link_to "戻る", user_path(current_user.id), class: "btn btn-light" %>
+  <%= link_to "一覧へ戻る", videos_path, class: "btn btn-light" %>
 </div>
