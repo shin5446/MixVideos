@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  resources :users, only: %i[show]
+  resources :users, only: %i[show index]
 
   # 動画関連
   resources :videos do
