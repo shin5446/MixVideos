@@ -32,12 +32,12 @@
     </tr>
     <tr>
       <th>コメント一覧</th>
-      <td><div id="comments_area">
-      <%= render partial: 'comments/index', locals: { comments: @comments, video: @video } %>
-    </div></td>
+      <td><div id="comments_area"><%= render partial: 'comments/index', locals: { comments: @comments, video: @video } %></div></td>
     </tr>
   </table>
   <%= render partial: 'comments/form', locals: { comment: @comment, video: @video } %>
-  <%= link_to '編集', edit_video_path(@video), class: "btn btn-outline-info btn-sm" %>
+  <%if current_user.try(:id) == @video.user_id %>
+    <%= link_to '編集', edit_video_path(@video), class: "btn btn-outline-info btn-sm" %>
+  <% end %>
   <%= link_to '戻る', videos_path, class: "btn btn-outline-info btn-sm" %>
 </div>

@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   before_action :set_video, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[edit update destroy]
+  before_action :correct_user, only: %i[edit destroy]
   def index
     @videos = Video.all
   end
@@ -29,7 +30,7 @@ class VideosController < ApplicationController
 
   def update
     if @video.update(video_params)
-      redirect_to videos_path, notice: '動画を編集しました！'
+      redirect_to videos_path flash[:success] = '動画を編集しました！'
     else
       render 'edit'
     end
@@ -37,7 +38,7 @@ class VideosController < ApplicationController
 
   def destroy
     @video.destroy
-    redirect_to videos_path, notice: '投稿を削除しました！'
+    redirect_to videos_path flash[:success] = '投稿を削除しました！'
   end
 
   private
@@ -48,5 +49,12 @@ class VideosController < ApplicationController
 
   def set_video
     @video = Video.find(params[:id])
+  end
+
+  def correct_user
+    unless current_user.id == @video.user_id
+      flash[:danger] = "他人の投稿は編集できません！"
+      redirect_to videos_path
+    end
   end
 end
