@@ -27,6 +27,8 @@ gem 'kaminari', '~> 0.17.0'
 gem 'bootstrap'
 # メッセージの日本語化
 gem 'rails-i18n'
+# 検索関連
+gem 'ransack'
 
 group :development, :test do
   # デバッグ関連
