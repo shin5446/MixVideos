@@ -15,15 +15,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #指定のユーザをフォローする
+  # 指定のユーザをフォローする
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
   end
-  #フォローしているかどうかを確認する
+
+  # フォローしているかどうかを確認する
   def following?(other_user)
     active_relationships.find_by(followed_id: other_user.id)
   end
-  #指定のユーザのフォローを解除する
+
+  # 指定のユーザのフォローを解除する
   def unfollow!(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
