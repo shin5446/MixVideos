@@ -5,6 +5,13 @@ class VideosController < ApplicationController
   def index
     @q = Video.ransack(params[:q])
     @videos = @q.result(distinct: true)
+    @videos = if params[:sort_like]
+                Video.sort_like
+              elsif params[:sort_created_at]
+                Video.sort_created_at
+              else
+                Video.all
+              end
   end
 
   def new

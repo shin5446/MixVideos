@@ -9,6 +9,8 @@
 <br/>
 
 <%= link_to '新しく動画を投稿する', new_video_path, class: "btn btn-primary btn-sm" %>
+<%= link_to "新着順", videos_path(sort_created_at: true), class: "btn btn-outline-primary btn-sm"%>
+<%= link_to "人気順", videos_path(sort_like: true), class: "btn btn-outline-primary btn-sm"%>
 
 <table class = "table table-hover" >
   <tr>
