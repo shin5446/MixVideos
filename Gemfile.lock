@@ -355,7 +355,7 @@ DEPENDENCIES
   carrierwave
   chromedriver-helper
   coffee-rails (~> 4.2)
-  counter_culture
+  counter_culture (~> 2.0)
   database_cleaner
   devise
   factory_bot_rails

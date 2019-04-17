@@ -29,8 +29,8 @@ gem 'bootstrap'
 gem 'rails-i18n'
 # 検索関連
 gem 'ransack'
-# いいね関連
-gem 'counter_culture'
+# カウンター関連
+gem 'counter_culture', '~> 2.0'
 
 group :development, :test do
   # デバッグ関連

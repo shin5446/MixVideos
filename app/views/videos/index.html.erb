@@ -9,6 +9,8 @@
 <br/>
 
 <%= link_to '新しく動画を投稿する', new_video_path, class: "btn btn-primary btn-sm" %>
+<%= link_to "新着順", videos_path(sort_created_at: true), class: "btn btn-outline-primary btn-sm"%>
+<%= link_to "人気順", videos_path(sort_like: true), class: "btn btn-outline-primary btn-sm"%>
 
 <table class = "table table-hover" >
   <tr>
@@ -16,6 +18,7 @@
     <th>タイトル</th>
     <th>内容</th>
     <th>ジャンル</th>
+    <th>いいね数</th>
   </tr>
 
   <% @videos.each do |video| %>
@@ -25,8 +28,8 @@
       <td><%= video.content %></td>
       <% video.genres.each do |genre| %>
       <td class="badge badge-primary p-1"><%= genre.name %></>
-
       <% end %>
+      <td><%= video.likes_count %></td>
       <td><%= link_to '詳細', video_path(video.id) ,class: "btn btn-outline-dark btn-sm" %></td>
       <td><%= link_to "編集", edit_video_path(video.id), method: :get, class: "btn btn-outline-dark btn-sm" %></td>
       <td><%= link_to '削除', video_path(video.id), method: :delete,data: { confirm: '本当に削除していいですか？'}, class: "btn btn-outline-danger btn-sm" %></td>
