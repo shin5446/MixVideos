@@ -3,6 +3,10 @@
     <h1 class="mb-5">ユーザー詳細画面</h1>
     <table class="table table-hover w-50 mb-5">
       <tr>
+        <td>ユーザーアイコン</td>
+        <td><%= image_tag @user.icon.url %></td>
+      </tr>
+      <tr>
         <td>名前</td>
         <td><%= @user.name %></td>
       </tr>
