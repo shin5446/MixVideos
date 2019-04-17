@@ -15,6 +15,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # 画像アップ用の設定
+  mount_uploader :icon, ImageUploader
+
   # 指定のユーザをフォローする
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
