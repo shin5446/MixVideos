@@ -3,10 +3,13 @@ class RelationshipsController < ApplicationController
   respond_to? :js
 
   def show
-    if params[:following] != nil
-      @following = User.find(params[:id]).following
-    else
-      @followers = User.find(params[:id]).followers
+    user = User.find(params[:id])
+    type = params[:type]
+
+    if type == "following"
+      @following = user.following
+    elsif type == "followers"
+      @followers = user.followers
     end
   end
 

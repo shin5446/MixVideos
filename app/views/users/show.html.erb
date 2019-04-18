@@ -34,8 +34,8 @@
       <% end %>
       <%= link_to '投稿した動画', like_path(type: "post"), class: "btn btn-primary" %>
       <%= link_to 'お気に入り動画', like_path(type: "like"), class: "btn btn-primary" %>
-      <%= link_to 'フォローしてる人', relationship_path(@user.id, following: @user.following), class: "btn btn-primary" %>
-      <%= link_to 'フォローされてる人', relationship_path(@user.id, followed: @user.followers), class: "btn btn-primary" %>
+      <%= link_to 'フォローしてる人', relationship_path(type: "following"), class: "btn btn-primary" %>
+      <%= link_to 'フォローされてる人', relationship_path(type: "followers"), class: "btn btn-primary" %>
       <%= link_to "一覧へ戻る", videos_path, class: "btn btn-light" %>
     </div>
   </div>
