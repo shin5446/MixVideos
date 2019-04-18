@@ -2,7 +2,13 @@ class LikesController < ApplicationController
   before_action :authenticate_user!, only: %i[create destroy]
   def show
     user = User.find(params[:id])
-    @likes = user.like_videos
+    type = params[:type]
+
+    if type == "post"
+      @post_videos = user.videos
+    elsif type == "like"
+      @like_videos = user.like_videos
+    end
   end
 
   def create
