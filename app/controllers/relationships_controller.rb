@@ -6,9 +6,9 @@ class RelationshipsController < ApplicationController
     user = User.find(params[:id])
     type = params[:type]
 
-    if type == "following"
+    if type == 'following'
       @following = user.following
-    elsif type == "followers"
+    elsif type == 'followers'
       @followers = user.followers
     end
   end

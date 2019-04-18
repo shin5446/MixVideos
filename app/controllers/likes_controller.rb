@@ -4,9 +4,9 @@ class LikesController < ApplicationController
     user = User.find(params[:id])
     type = params[:type]
 
-    if type == "post"
+    if type == 'post'
       @post_videos = user.videos
-    elsif type == "like"
+    elsif type == 'like'
       @like_videos = user.like_videos
     end
   end

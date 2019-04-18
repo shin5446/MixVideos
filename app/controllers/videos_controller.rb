@@ -60,7 +60,7 @@ class VideosController < ApplicationController
 
   def correct_user
     unless current_user.id == @video.user_id
-      flash[:danger] = "他人の投稿は編集できません！"
+      flash[:danger] = '他人の投稿は編集できません！'
       redirect_to videos_path
     end
   end
