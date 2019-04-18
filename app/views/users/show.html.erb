@@ -18,6 +18,14 @@
         <td>動画投稿数</td>
         <td><%= @user.videos.count %></td>
       </tr>
+      <tr>
+        <td>フォロー</td>
+        <td><%= @user.following.count %></td>
+      </tr>
+      <tr>
+        <td>フォロワー</td>
+        <td><%= @user.followers.count %></td>
+      </tr>
     </table>
 
     <div class="form-footer">
