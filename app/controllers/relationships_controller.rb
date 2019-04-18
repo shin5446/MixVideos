@@ -1,6 +1,14 @@
 class RelationshipsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[create destroy]
   respond_to? :js
+
+  def show
+    if params[:following] != nil
+      @following = User.find(params[:id]).following
+    else
+      @followers = User.find(params[:id]).followers
+    end
+  end
 
   def create
     @user = User.find(params[:relationship][:followed_id])
