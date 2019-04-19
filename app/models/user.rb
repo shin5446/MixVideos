@@ -33,7 +33,7 @@ class User < ApplicationRecord
   end
 
   # oauth認証
-  def from_omniauth(auth)
+  def self.from_omniauth(auth)
     user = User.find_by(email: auth.info.email)
     user ||= User.new(
       email: auth.info.email,
