@@ -7,7 +7,7 @@ class Video < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :title, :content, :url, presence: true
-  validates :title, length: { maximum: 30 }
+  validates :title, length: { maximum: 50 }
   validates :content, length: { maximum: 300 }
   validates :url, format: /\A#{URI.regexp(%w[http https])}\z/, length: { maximum: 100 }
 
