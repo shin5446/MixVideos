@@ -21,6 +21,10 @@
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="actions">
+    <%= link_to user_google_omniauth_authorize_path, class: "btn btn-outline-primary btn-sm my-1" do %>
+      <span><%= fa_icon "google" %>　Googleログイン</span>
+    <% end %>
+  </div>
+<% end %>
