@@ -26,9 +26,11 @@
       <td><%= video.user.name %></td>
       <td><%= video.title %></td>
       <td><%= video.content %></td>
+      <td>
       <% video.genres.each do |genre| %>
-      <td class="badge badge-primary p-1"><%= genre.name %></>
+      <%= link_to genre.name, videos_path, class: "badge badge-primary p-1" %>
       <% end %>
+      </td>
       <td><%= video.likes_count %></td>
       <td><%= link_to '詳細', video_path(video.id) ,class: "btn btn-outline-dark btn-sm" %></td>
       <td><%= link_to "編集", edit_video_path(video.id), method: :get, class: "btn btn-outline-dark btn-sm" %></td>
