@@ -386,6 +386,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_bot_rails
+  font-awesome-rails
   jbuilder (~> 2.5)
   kaminari (~> 0.17.0)
   launchy
