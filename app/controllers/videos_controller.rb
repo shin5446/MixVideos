@@ -2,6 +2,8 @@ class VideosController < ApplicationController
   before_action :set_video, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[edit update destroy]
   before_action :correct_user, only: %i[edit destroy]
+  PER_PAGE = 4
+
   def index
     @q = Video.ransack(params[:q])
     @videos = if params[:sort_like]
@@ -13,6 +15,8 @@ class VideosController < ApplicationController
               else
                 @q.result(distinct: true)
               end
+
+    @videos = @videos.page(params[:page]).per(PER_PAGE)
   end
 
   def new
