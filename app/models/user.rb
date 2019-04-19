@@ -13,8 +13,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: %i[google]
   # 画像アップ用の設定
   mount_uploader :icon, ImageUploader
 
@@ -32,6 +31,21 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
+
+  # oauth認証
+  def from_omniauth(auth)
+    user = User.find_by(email: auth.info.email)
+    user ||= User.new(
+      email: auth.info.email,
+      provider: auth.provider,
+      uid: auth.uid,
+      name: auth.info.name,
+      password: Devise.friendly_token[0, 20]
+    )
+    user.save
+    user
+  end
+
   # ランダムなuidを作成
   def self.create_unique_string
     SecureRandom.uuid
