@@ -8,6 +8,8 @@ class VideosController < ApplicationController
                 Video.sort_like
               elsif params[:sort_created_at]
                 Video.sort_created_at
+              elsif params[:genre_id]
+                Video.sort_genre(params[:genre_id])
               else
                 @q.result(distinct: true)
               end

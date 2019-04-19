@@ -28,7 +28,7 @@
       <td><%= video.content %></td>
       <td>
       <% video.genres.each do |genre| %>
-      <%= link_to genre.name, videos_path, class: "badge badge-primary p-1" %>
+      <%= link_to genre.name, videos_path(genre_id: genre.id), class: "badge badge-primary p-1" %>
       <% end %>
       </td>
       <td><%= video.likes_count %></td>
