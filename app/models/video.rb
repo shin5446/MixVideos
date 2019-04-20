@@ -6,6 +6,9 @@ class Video < ApplicationRecord
   has_many :genres, through: :video_genres, source: :genre
   has_many :comments, dependent: :destroy
 
+  # タグ関連
+  acts_as_taggable
+
   validates :title, :content, :url, presence: true
   validates :title, length: { maximum: 50 }
   validates :content, length: { maximum: 300 }
