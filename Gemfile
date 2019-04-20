@@ -34,6 +34,8 @@ gem 'rails-i18n'
 gem 'ransack'
 # カウンター関連
 gem 'counter_culture', '~> 2.0'
+# タグ関連
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   # デバッグ関連
