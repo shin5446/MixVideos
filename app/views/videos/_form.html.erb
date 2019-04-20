@@ -32,6 +32,11 @@
         <%= form.collection_check_boxes :genre_ids, Genre.all, :id, :name, include_hidden: false %>
       </div>
 
+      <div class="form-item my-2">
+        <%= form.label :タグ %><br>
+        <%= form.text_field :tag_list, value: @video.tag_list.join(','), class: "form-control w-50 my-2" %>
+      </div>
+
       <div class="actions" >
         <%= form.submit nil, class: "btn btn-outline-success btn-sm my-2" %>
       </div>

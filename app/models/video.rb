@@ -1,13 +1,13 @@
 class Video < ApplicationRecord
+  # タグ関連
+  acts_as_taggable
+
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
   has_many :video_genres, dependent: :destroy
   has_many :genres, through: :video_genres, source: :genre
   has_many :comments, dependent: :destroy
-
-  # タグ関連
-  acts_as_taggable
 
   validates :title, :content, :url, presence: true
   validates :title, length: { maximum: 50 }
