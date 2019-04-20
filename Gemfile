@@ -27,7 +27,6 @@ gem 'carrierwave'
 gem 'kaminari', '~> 0.17.0'
 # デザイン関連
 gem 'bootstrap'
-gem 'bootstrap-tagsinput-rails'
 gem 'jquery-ui-rails'
 gem "font-awesome-rails"
 # メッセージの日本語化
