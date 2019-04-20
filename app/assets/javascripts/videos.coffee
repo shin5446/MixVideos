@@ -2,4 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'ready page:load', ->
-  $('#video-tags').tagit()
+  $('#video-tags').tagit(
+    fieldName:   'article[tag_list]'
+    singleField: true
+  )
