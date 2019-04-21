@@ -12,6 +12,8 @@ class VideosController < ApplicationController
                 Video.sort_created_at
               elsif params[:genre_id]
                 Video.sort_genre(params[:genre_id])
+              elsif params[:tag_name]
+                Video.tagged_with("#{params[:tag_name]}")
               else
                 @q.result(distinct: true)
               end
