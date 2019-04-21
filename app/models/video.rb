@@ -12,7 +12,7 @@ class Video < ApplicationRecord
   validates :title, :content, :url, presence: true
   validates :title, length: { maximum: 50 }
   validates :content, length: { maximum: 300 }
-  validates :url, format: /\A#{URI.regexp(%w[http https])}\z/, length: { maximum: 100 }
+  validates :url, format: /\Ahttps?:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=\w+)(?:\S+)?\z/, length: { maximum: 100 }
 
   scope :sort_like, -> { order(likes_count: :desc) }
   scope :sort_created_at, -> { order(created_at: :desc) }
