@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'tags/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'videos#index'
 
@@ -21,6 +20,9 @@ Rails.application.routes.draw do
 
   # フォローフォロワー関連
   resources :relationships, only: %i[show create destroy]
+
+  # タグ関連
+  resources :tags, only: %i[index]
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
