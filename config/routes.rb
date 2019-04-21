@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tags/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'videos#index'
 
