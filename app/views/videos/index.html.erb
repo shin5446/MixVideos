@@ -21,6 +21,7 @@
     <th>ジャンル</th>
     <th>タグ</th>
     <th>いいね数</th>
+    <th>コメント数</th>
   </tr>
 
   <% @videos.each do |video| %>
@@ -35,6 +36,7 @@
       </td>
       <td><%= render 'videos/tag_list', tag_list: video.tag_list %></td>
       <td><%= video.likes_count %></td>
+      <td><%= video.comments.count %></td>
       <td><%= link_to '詳細', video_path(video.id) ,class: "btn btn-outline-dark btn-sm" %></td>
       <% if current_user.try(:id) == video.user_id %>
       <td><%= link_to "編集", edit_video_path(video.id), method: :get, class: "btn btn-outline-dark btn-sm" %></td>
