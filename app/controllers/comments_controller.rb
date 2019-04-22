@@ -13,6 +13,16 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    @video = @comment.video
+    redirect_to video_path(@video) if @comment.update(comment_params)
+  end
+
   def destroy
     @comment = Comment.find(params[:id])
     render :index if @comment.destroy
@@ -23,3 +33,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:user_id, :video_id, :content)
   end
+end
