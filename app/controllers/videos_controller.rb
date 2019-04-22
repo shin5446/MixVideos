@@ -18,7 +18,7 @@ class VideosController < ApplicationController
                 @q.result(distinct: true)
               end
 
-    @videos = @videos.page(params[:page]).per(PER_PAGE)
+    @videos = @videos.page(params[:page]).per(PER_PAGE).sort_created_at
   end
 
   def new
