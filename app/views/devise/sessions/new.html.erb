@@ -19,7 +19,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "btn btn-outline-primary btn-sm my-1" %>
   </div>
 
   <div class="actions">
@@ -28,3 +28,6 @@
     <% end %>
   </div>
 <% end %>
+<div>
+  <%= render "devise/shared/links" %>
+</div>
