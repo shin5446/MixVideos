@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: %i[show edit update destroy]
-  before_action :authenticate_user!, only: %i[edit update destroy]
+  before_action :authenticate_user!, only: %i[new edit update destroy]
   before_action :correct_user, only: %i[edit destroy]
   PER_PAGE = 4
 
