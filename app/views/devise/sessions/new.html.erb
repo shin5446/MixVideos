@@ -1,33 +1,20 @@
-<h2>Log in</h2>
+<%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div id="logreg-forms">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Log in</h1>
+    <div class="social-login">
+      <%= link_to user_google_omniauth_authorize_path,class: "btn google-btn social-btn" do %>
+        <span><%= fa_icon "google" %>  Googleでログイン +</span>
+      <% end %>
     </div>
+    <p style="text-align:center"> OR  </p>
+    <%= f.email_field :email, autofocus: true, type:"text", class: "form-control", placeholder: "Email address", required: "" %>
+    <%= f.password_field :password, autofocus: true, class: "form-control", placeholder: "Password", required: "" %>
+    <br>
+    <%= f.submit "ログイン", class: "btn btn-success btn-block fa-sign-in-alt" %>
+<%= link_to "パスワードを忘れた方", new_password_path(resource_name), class: "btn btn-block" %>
+  <hr>
+<%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary btn-block social-btn" %>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in", class: "btn btn-outline-primary btn-sm my-1" %>
-  </div>
-
-  <div class="actions">
-    <%= link_to user_google_omniauth_authorize_path, class: "btn btn-outline-primary btn-sm my-1" do %>
-      <span><%= fa_icon "google" %>　Googleログイン</span>
-    <% end %>
-  </div>
-<% end %>
-<div>
-  <%= render "devise/shared/links" %>
 </div>
