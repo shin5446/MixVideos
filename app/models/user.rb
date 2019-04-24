@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :videos
+  has_many :videos, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :like_videos, through: :likes, source: :video
   has_many :comments
