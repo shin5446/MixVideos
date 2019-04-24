@@ -12,7 +12,7 @@
   <% if current_user.try(:id) %>
     <div class="field">
       <%= form.label :コメントを作成する %>
-      <%= form.text_area :content, class: "form-control w-50 my-2", rows: 3 %>
+      <%= form.text_area :content,required: true ,class: "form-control w-50 my-2", rows: 3 %>
     </div>
 
     <div class="actions">
