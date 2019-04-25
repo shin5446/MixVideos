@@ -17,12 +17,4 @@ class Video < ApplicationRecord
   scope :sort_like, -> { order(likes_count: :desc) }
   scope :sort_created_at, -> { order(created_at: :desc) }
   scope :sort_genre, ->(genre_id) { where(id: genre_ids = VideoGenre.where(genre_id: genre_id).select(:video_id)) }
-
-  after_validation :check_url
-
-  private
-
-  def check_url
-    video_exist?(url)
-  end
 end
