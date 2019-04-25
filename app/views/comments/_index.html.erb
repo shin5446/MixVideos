@@ -1,7 +1,8 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
-    <p><%= link_to "#{comment.user.name}", user_path(comment.user.id) %></p>
-    <p><%= comment.content %>
+    <br><%= image_tag comment.user.icon.url unless comment.user.icon.url.nil? %>
+    <%= link_to "#{comment.user.name}", user_path(comment.user.id) %>
+    <p class = "balloon1-left"><%= comment.content %>
       <% if comment.user == current_user %>
         <%= link_to '編集', edit_video_comment_path(comment.video_id, comment.id), method: :get, class:"btn btn-success btn-sm my-2" %>
         <%= link_to '削除', video_comment_path(comment.video_id, comment.id), method: :delete, remote: true, class:"btn btn-danger btn-sm my-2" %>
