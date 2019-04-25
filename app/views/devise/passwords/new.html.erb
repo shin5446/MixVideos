@@ -1,20 +1,15 @@
 <%= devise_error_messages! %>
-  <div class="page-header">
-    <h2>パスワードを<br>忘れてしまった方へ</h2>
-  </div>
+
+<div class="h3 mb-3 font-weight-normal" style="text-align: center">
+  <h1 > 登録したメールアドレスをご入力ください</h1>
   <p>以下の欄に登録したメールアドレスをご入力ください。<br>
-     パスワード再設定について、メールでご連絡いたします。
+    パスワード再設定について、メールでご連絡いたします。
   </p>
-  <div class="pass_new">
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-
-      <div class="email">
-        <%= f.label :email %><br />
-        <p class="in_field"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control w-25 my-2" %></p>
-      </div>
-
-      <div class="actions">
-        <p class="in_field"><%= f.submit "パスワード再設定メールを送る",class: "btn btn-outline-success btn-sm my-2" %></p>
-      </div>
-    <% end %>
-  </div>
+</div>
+<div id="logreg-forms">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.email_field :email, autofocus: true, type:"text", class: "form-control", placeholder: "Email address", required: "" %><br>
+    <%= f.submit "パスワード再設定メールを送る", class: "btn btn-success btn-block fa-sign-in-alt" %><br>
+    <%= link_to "戻る", new_user_session_path, class: "btn btn-dark btn-block social-btn" %>
+  <% end %>
+</div>
