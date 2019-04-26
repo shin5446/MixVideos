@@ -1,54 +1,19 @@
-<h1>動画一覧</h1>
-<dl class="searchbox">
-  <%= search_form_for @q do |f| %>
-    <dt><%= f.search_field :title_or_content_or_user_name_cont, required: true ,placeholder: '検索するテキストを入力...' %></dt>
-    <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
-  <% end %>
-</dl>
 
-<br/>
+  <br><dl class="searchbox">
+    <%= search_form_for @q do |f| %>
+      <dt><%= f.search_field :title_or_content_or_user_name_cont, required: true ,placeholder: '検索するテキストを入力...' %></dt>
+      <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+    <% end %>
+  </dl>
+
+  <br/>
 
 <%= paginate @videos %>
-<%= link_to '新しく動画を投稿する', new_video_path, class: "btn btn-primary btn-sm" %>
-<%= link_to "新着順", videos_path(sort_created_at: true), class: "btn btn-outline-primary btn-sm"%>
-<%= link_to "人気順", videos_path(sort_like: true), class: "btn btn-outline-primary btn-sm"%>
-
-<%
-=begin%>
- <table class = "table table-hover" >
-  <tr>
-    <th>投稿者</th>
-    <th>タイトル</th>
-    <th>内容</th>
-    <th>ジャンル</th>
-    <th>タグ</th>
-    <th>いいね数</th>
-    <th>コメント数</th>
-  </tr>
-
-  <% @videos.each do |video| %>
-    <tr>
-      <td><%= video.user.name %></td>
-      <td><%= video.title %></td>
-      <td><%= video.content %></td>
-      <td>
-        <% video.genres.each do |genre| %>
-          <%= link_to genre.name, videos_path(genre_id: genre.id), class: "badge badge-primary p-1" %>
-        <% end %>
-      </td>
-      <td><%= render 'videos/tag_list', tag_list: video.tag_list %></td>
-      <td><%= video.likes_count %></td>
-      <td><%= video.comments.count %></td>
-      <td><%= link_to '詳細', video_path(video.id) ,class: "btn btn-outline-dark btn-sm" %></td>
-      <% if current_user.try(:id) == video.user_id %>
-      <td><%= link_to "編集", edit_video_path(video.id), method: :get, class: "btn btn-outline-dark btn-sm" %></td>
-      <td><%= link_to '削除', video_path(video.id), method: :delete,data: { confirm: '本当に削除していいですか？'}, class: "btn btn-outline-danger btn-sm" %></td>
-      <% end %>
-    </tr>
-  <% end %>
-</table> 
-<%
-=end%>
+<div style="text-align: center">
+  <%= link_to "新着順", videos_path(sort_created_at: true), class: "btn btn-outline-primary btn-sm w-25"%>
+  <%= link_to "人気順", videos_path(sort_like: true), class: "btn btn-outline-primary btn-sm w-25"%>
+</div>
+  <%= link_to '新しく動画を投稿する', new_video_path, class: "btn btn-primary btn-sm" %>
 
 <div class="bg-light">
   <div class="px-2 py-3">
@@ -56,21 +21,29 @@
       <div class="row">
         <div class="col-3">
           <% if current_user %>
-            <div class="card" style="text-align: center">
+            <div class="card mb-3" style="text-align: center">
               <div class="card-header">
               <i class = "circle"><%= image_tag current_user.icon.url unless current_user.icon.url.nil? %></i> <%= current_user.name %>
+              </div>
+              <table>
+                <tr>
+                  <td>フォロー数</td>
+                  <td>フォロワー数</td>
+                  </td>
+                <tr>
+                  <td><%= current_user.following.count %></td>
+                  <td><%= current_user.followers.count %></td>
+                </tr>
+              </table>
             </div>
-            <table>
-            <tr>
-            <td>フォロー数</td>
-            <td>フォロワー数</td>
-            </td>
-            <tr>
-            <td><%= current_user.following.count %></td>
-            <td><%= current_user.followers.count %></td>
-            </tr>
-            </table>
           <% end %>
+          <div class="card">
+            <div class="card-body">
+              <h5>カテゴリーから探す</h5>
+              <% @genres.each do |genre| %>
+                <p><%= link_to genre.name, videos_path(genre_id: genre.id), class: "btn btn-primary btn-sm" %></p>
+              <% end %>
+            </div>
           </div>
         </div>
 
