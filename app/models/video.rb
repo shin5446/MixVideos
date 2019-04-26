@@ -13,9 +13,8 @@ class Video < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :title, :content, :url, presence: true
-  validates :title, length: { maximum: 100 }
+  validates :title, :url, length: { maximum: 100 }
   validates :content, length: { maximum: 300 }
-  validates :url, format:  /\Ahttps?:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=\w+)(?:\S+)?\z/, length: { maximum: 100 }
   validate :video_exist?
 
   scope :sort_like, -> { order(likes_count: :desc) }
@@ -25,18 +24,22 @@ class Video < ApplicationRecord
   private
 
   def video_exist?
-    uri = URI.parse(url)
-    request = Net::HTTP::Head.new(uri)
+    if /\Ahttps?:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=\w+)(?:\S+)?\z/ === url
+      uri = URI.parse(url)
+      request = Net::HTTP::Head.new(uri)
 
-    req_options = {
-      use_ssl: uri.scheme == "https",
-    }
+      req_options = {
+        use_ssl: uri.scheme == "https",
+      }
 
-    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-      http.request(request)
+      response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+        http.request(request)
+      end
+      if response.code != "200"
+        errors.add(:url, "このurlは存在しないか削除されています")
+      end
+    else
+      errors.add(:url)
     end
-     if response.code != "200"
-      errors.add(:url, "このurlは存在しないか削除されています")
-     end
   end
 end
