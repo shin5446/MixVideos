@@ -23,6 +23,7 @@ class Video < ApplicationRecord
 
   private
 
+  # 不正なURLを弾くために独自のバリデーションを実装
   def video_exist?
     if /\Ahttps?:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=\w+)(?:\S+)?\z/ === url
       uri = URI.parse(url)
