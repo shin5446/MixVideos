@@ -1,4 +1,7 @@
 class Video < ApplicationRecord
+  require 'net/http'
+  require 'uri'
+
   # タグ関連
   acts_as_taggable
 
@@ -12,9 +15,28 @@ class Video < ApplicationRecord
   validates :title, :content, :url, presence: true
   validates :title, length: { maximum: 100 }
   validates :content, length: { maximum: 300 }
-  validates :url, format: /\Ahttps?:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=\w+)(?:\S+)?\z/, length: { maximum: 100 }
+  validates :url, format:  /\Ahttps?:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=\w+)(?:\S+)?\z/, length: { maximum: 100 }
+  validate :video_exist?
 
   scope :sort_like, -> { order(likes_count: :desc) }
   scope :sort_created_at, -> { order(created_at: :desc) }
   scope :sort_genre, ->(genre_id) { where(id: genre_ids = VideoGenre.where(genre_id: genre_id).select(:video_id)) }
+
+  private
+
+  def video_exist?
+    uri = URI.parse(url)
+    request = Net::HTTP::Head.new(uri)
+
+    req_options = {
+      use_ssl: uri.scheme == "https",
+    }
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+    end
+     if response.code != "200"
+      errors.add(:url, "このurlは存在しないか削除されています")
+     end
+  end
 end
