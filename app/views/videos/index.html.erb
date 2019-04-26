@@ -1,10 +1,17 @@
 
-  <br><dl class="searchbox">
-    <%= search_form_for @q do |f| %>
-      <dt><%= f.search_field :title_or_content_or_user_name_cont, required: true ,placeholder: '検索するテキストを入力...' %></dt>
-      <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
-    <% end %>
-  </dl>
+<br>
+<%= search_form_for @q do |f| %>
+ <div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+      <div class="searchbar">
+          <%= f.search_field :title_or_content_or_user_name_cont, required: true ,placeholder: '検索するテキストを入力...', class: "search_input"%>
+          <%= fa_icon 'search' do %>
+          <a><i><%= f.submit nil, class: "search_icon" %></i></a>
+          <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
   <br/>
 
@@ -37,7 +44,7 @@
               </table>
             </div>
           <% end %>
-          <div class="card">
+          <div class="card mb-3">
             <div class="card-body">
               <h5>ジャンルから探す</h5>
               <% @genres.each do |genre| %>
@@ -60,7 +67,7 @@
           <div class="card mb-3">
             <div class="row">
               <div class="card-body col-6">
-                <iframe src=<%= embed_url(video) %> ></iframe>
+                <iframe width="320" height="200" src=<%= embed_url(video) %> allowfullscreen></iframe>
                 <p><%= video.title %></p>
                 <p>投稿者: <i class = "circle"><%= image_tag video.user.icon.url unless video.user.icon.url.nil? %></i> <%= video.user.name %></p>
                 <p>いいね数<%= video.likes_count %></p>
