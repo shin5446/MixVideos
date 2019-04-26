@@ -39,10 +39,18 @@
           <% end %>
           <div class="card">
             <div class="card-body">
-              <h5>カテゴリーから探す</h5>
+              <h5>ジャンルから探す</h5>
               <% @genres.each do |genre| %>
                 <%= link_to genre.name, videos_path(genre_id: genre.id), class: "btn btn-primary btn-sm my-1" %>
               <% end %>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5>タグから探す</h5>
+              <% @tags.each do |tag| %>
+              <%= link_to "#{tag.name}(#{tag.taggings_count})", videos_path(tag_name: tag.name), class: "btn btn-dark btn-sm my-1" %>
+            <% end %> <br>
             </div>
           </div>
         </div>

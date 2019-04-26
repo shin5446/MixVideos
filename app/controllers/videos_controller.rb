@@ -6,6 +6,7 @@ class VideosController < ApplicationController
 
   def index
     @genres = Genre.all
+    @tags = Video.all_tags
     @q = Video.ransack(params[:q])
     @videos = if params[:sort_like]
                 Video.sort_like
