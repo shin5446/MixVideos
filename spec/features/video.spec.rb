@@ -12,7 +12,6 @@ RSpec.feature '動画機能', type: :feature do
       FactoryBot.create(:second_video, user: user_2)
       FactoryBot.create(:third_video, user: user_3)
       FactoryBot.create(:fourth_video, user: user_4)
-
     end
     context 'ユーザー１がログインしている時' do
       before do

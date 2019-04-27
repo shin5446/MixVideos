@@ -25,20 +25,18 @@ class Video < ApplicationRecord
 
   # 不正なURLを弾くために独自のバリデーションを実装
   def video_exist?
-    if /\Ahttps?:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=\w+)(?:\S+)?\z/ === url
+    if %r{\Ahttps?://(?:www\.)?youtube.com/watch\?(?=.*v=\w+)(?:\S+)?\z}.match?(url)
       uri = URI.parse(url)
       request = Net::HTTP::Head.new(uri)
 
       req_options = {
-        use_ssl: uri.scheme == "https",
+        use_ssl: uri.scheme == 'https'
       }
 
       response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
         http.request(request)
       end
-      if response.code != "200"
-        errors.add(:url, "このurlは存在しないか削除されています")
-      end
+      errors.add(:url, 'このurlは存在しないか削除されています') if response.code != '200'
     else
       errors.add(:url)
     end

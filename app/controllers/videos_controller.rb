@@ -15,7 +15,7 @@ class VideosController < ApplicationController
               elsif params[:genre_id]
                 Video.sort_genre(params[:genre_id])
               elsif params[:tag_name]
-                Video.tagged_with("#{params[:tag_name]}")
+                Video.tagged_with(params[:tag_name].to_s)
               else
                 @q.result(distinct: true)
               end
