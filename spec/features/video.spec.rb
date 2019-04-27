@@ -16,9 +16,9 @@ RSpec.feature '動画機能', type: :feature do
     context 'ユーザー１がログインしている時' do
       before do
         visit new_user_session_path
-        fill_in 'メールアドレス', with: 'user1@example.com'
-        fill_in 'パスワード', with: 'password'
-        click_button 'Log in'
+        fill_in 'user_email', with: 'user1@example.com'
+        fill_in 'user_password', with: 'password'
+        click_button 'ログイン'
         visit videos_path
       end
 
@@ -34,7 +34,7 @@ RSpec.feature '動画機能', type: :feature do
         fill_in 'video[url]', with: 'https://www.youtube.com/watch?v=ffyYxu1rPi8'
         click_on '登録する'
         expect(page).to have_content 'テストタイトル'
-        expect(page).to have_content 'テストコンテント'
+        expect(page).to have_content '投稿者: テストユーザー1'
       end
     end
     context '動画のソート、検索' do
@@ -46,19 +46,20 @@ RSpec.feature '動画機能', type: :feature do
       scenario 'タイトル検索のテスト' do
         visit videos_path
         fill_in 'q_title_or_content_or_user_name_cont', with: 'test_video_01'
-        click_on '検索'
+        click_on 'button'
         expect(page).to have_content 'test_video_01'
       end
       scenario '内容検索のテスト' do
         visit videos_path
         fill_in 'q_title_or_content_or_user_name_cont', with: 'testtest2'
-        click_on '検索'
-        expect(page).to have_content 'testtest2'
+        click_on 'button'
+        expect(page).to have_content 'テストユーザー2'
+        expect(page).to have_no_content 'テストユーザー1'
       end
       scenario '投稿者検索のテスト' do
         visit videos_path
         fill_in 'q_title_or_content_or_user_name_cont', with: 'テストユーザー2'
-        click_on '検索'
+        click_on 'button'
         expect(page).to have_content 'test_video_02'
       end
     end
