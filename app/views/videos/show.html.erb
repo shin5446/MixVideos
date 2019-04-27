@@ -1,13 +1,13 @@
 <div class="container">
 
   <p id="notice"><%= notice %></p>
-
-  <%= link_to '戻る', videos_path, class: "btn btn-outline-dark btn-sm" %>
+  <div class="mx-auto" style="width: 500px; text-align: center">
+  <%= link_to '戻る', videos_path, class: "btn btn-outline-dark btn-sm w-25" %>
   <%if current_user.try(:id) == @video.user_id %>
-    <%= link_to '編集', edit_video_path(@video), class: "btn btn-outline-info btn-sm" %>
+    <%= link_to '編集', edit_video_path(@video), class: "btn btn-success btn-sm w-25" %>
   <% end %>
-
-  <div class="bg-secondary">
+  </div>
+  <div class="bg-light">
     <div class="px-2 py-3">
       <div class="card mr-2" >
       <h3 class="card-title" style="text-align: center"><%= @video.title %></h3><hr>
@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div class="bg-secondary">
+  <div class="bg-light">
     <div class="px-2 py-3">
       <div class="card" >
         <div class="card-body" style="text-align: center">
