@@ -1,0 +1,4 @@
+<h2>フォローされているユーザー</h2>
+  <% @followers.each do |user| %>
+    <%= link_to "#{user.name}", user_path(user.id) %> <br>
+  <% end %>

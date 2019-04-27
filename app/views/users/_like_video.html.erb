@@ -1,0 +1,18 @@
+<table class="table table-hover">
+  <% unless @like_videos.first == nil %>
+    <% @like_videos.each do |like_video| %>
+    <tr>
+      <td>タイトル</td>
+      <td><%= like_video.title %></td>
+    </tr>
+    <tr>
+      <td>投稿者</td>
+      <td><%= like_video.user.name %></td>
+    </tr>
+    <tr>
+      <td>動画</td>
+      <td><iframe width="560" height="315" src=<%= embed_url(like_video) %> ></iframe></td>
+    </tr>
+    <% end %>
+  <% end %>
+<table class="table table-hover">
