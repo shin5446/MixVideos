@@ -30,16 +30,16 @@
             <div class="card mb-3">
               <div class="row bg-light" style="text-align: center">
                 <div class="card-body col-3">
-                  <%= link_to '投稿した動画', like_path(type: "post"), class: "btn btn-primary btn-sm btn-block" %>
+                  <%= link_to '投稿した動画', user_path(type: "post"), class: "btn btn-primary btn-sm btn-block" %>
                 </div>
                 <div class="card-body col-3">
-                  <%= link_to 'お気に入り動画', like_path(type: "like"), class: "btn btn-primary btn-sm btn-block" %>
+                  <%= link_to 'お気に入り動画', user_path(type: "like"), class: "btn btn-primary btn-sm btn-block" %>
                 </div>
                 <div class="card-body col-3">
-                  <%= link_to 'フォロー', relationship_path(type: "following"), class: "btn btn-primary btn-sm btn-block" %>
+                  <%= link_to 'フォロー', user_path(type: "following"), class: "btn btn-primary btn-sm btn-block" %>
                 </div>
                 <div class="card-body col-3">
-                  <%= link_to 'フォロワー', relationship_path(type: "followers"), class: "btn btn-primary btn-sm btn-block" %>
+                  <%= link_to 'フォロワー', user_path(type: "followers"), class: "btn btn-primary btn-sm btn-block" %>
                 </div>
               </div>
             </div>
