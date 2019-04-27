@@ -1,46 +1,52 @@
-<div class="container">
-  <div class="show-wrapper">
-    <h1 class="mb-5">ユーザー詳細画面</h1>
-    <table class="table table-hover w-50 mb-5">
-      <tr>
-        <td>ユーザーアイコン</td>
-        <td><%= image_tag @user.icon.url unless @user.icon.url.nil? %></td>
-      </tr>
-      <tr>
-        <td>名前</td>
-        <td><%= @user.name %></td>
-      </tr>
-      <tr>
-        <td>メールアドレス</td>
-        <td><%= @user.email %></td>
-      </tr>
-      <tr>
-        <td>自己紹介</td>
-        <td><%= @user.introduction %></td>
-      </tr>
-      <tr>
-        <td>動画投稿数</td>
-        <td><%= @user.videos.count %></td>
-      </tr>
-      <tr>
-        <td>フォロー</td>
-        <td><%= @user.following.count %></td>
-      </tr>
-      <tr>
-        <td>フォロワー</td>
-        <td><%= @user.followers.count %></td>
-      </tr>
-    </table>
-
-    <div class="form-footer">
-      <%if current_user.try(:id) == @user.id %>
-        <%= link_to "編集", edit_user_registration_path, class: "btn btn-success mr-3" %>
-      <% end %>
-      <%= link_to '投稿した動画', like_path(type: "post"), class: "btn btn-primary" %>
-      <%= link_to 'お気に入り動画', like_path(type: "like"), class: "btn btn-primary" %>
-      <%= link_to 'フォローしてる人', relationship_path(type: "following"), class: "btn btn-primary" %>
-      <%= link_to 'フォローされてる人', relationship_path(type: "followers"), class: "btn btn-primary" %>
-      <%= link_to "一覧へ戻る", videos_path, class: "btn btn-light" %>
+<div class="bg-light">
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+            <div class="card mb-3">
+              <i class="mt-2" style="text-align: center"><%= image_tag @user.icon.url(:midium) unless @user.icon.url.nil?%></i>
+              <div class="card-body">
+                <h3><%= @user.name %></h3>
+                <table>
+                  <tr>
+                    <td>投稿 </td>
+                    <td> フォロー</td>
+                    <td>フォロワー</td>
+                  <tr>
+                    <td><%= @user.videos.count %></td>
+                    <td><%= @user.following.count %></td>
+                    <td><%= @user.followers.count %></td>
+                  </tr>
+                </table>
+                <hr>
+                <b><%= @user.introduction %></b>
+              </div>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="card mb-3">
+              <div class="row bg-light" style="text-align: center">
+                <div class="card-body col-3">
+                  <%= link_to '投稿した動画', like_path(type: "post"), class: "btn btn-primary btn-sm btn-block" %>
+                </div>
+                <div class="card-body col-3">
+                  <%= link_to 'お気に入り動画', like_path(type: "like"), class: "btn btn-primary btn-sm btn-block" %>
+                </div>
+                <div class="card-body col-3">
+                  <%= link_to 'フォロー', relationship_path(type: "following"), class: "btn btn-primary btn-sm btn-block" %>
+                </div>
+                <div class="card-body col-3">
+                  <%= link_to 'フォロワー', relationship_path(type: "followers"), class: "btn btn-primary btn-sm btn-block" %>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+  <%if current_user.try(:id) == @user.id %>
+    <%= link_to "編集", edit_user_registration_path, class: "btn btn-success mr-3" %>
+  <% end %>
+  <%= link_to "一覧へ戻る", videos_path, class: "btn btn-light" %>
