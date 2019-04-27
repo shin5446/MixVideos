@@ -19,7 +19,10 @@
                   </tr>
                 </table>
                 <hr>
-                <b><%= @user.introduction %></b>
+                <b><%= @user.introduction %></b><br>
+                <%if current_user.try(:id) == @user.id %>
+                  <%= link_to "編集", edit_user_registration_path, class: "btn btn-success btn-sm float-right" %>
+                <% end %>
               </div>
             </div>
         </div>
@@ -46,7 +49,6 @@
   </div>
 </div>
 
-  <%if current_user.try(:id) == @user.id %>
-    <%= link_to "編集", edit_user_registration_path, class: "btn btn-success mr-3" %>
-  <% end %>
-  <%= link_to "一覧へ戻る", videos_path, class: "btn btn-light" %>
+<div class="mx-auto" style="width: 350px; text-align: center">
+  <%= link_to '戻る', videos_path, class: "btn btn-outline-dark btn-sm w-50 mt-5" %>
+</div>
