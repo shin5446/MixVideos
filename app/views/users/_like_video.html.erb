@@ -5,7 +5,7 @@
         <div class="card-body col-6">
           <iframe width="320" height="200" src=<%= embed_url(like_video) %> allowfullscreen></iframe>
           <p><%= like_video.title %></p>
-          <p>投稿者: <i class = "circle"><%= image_tag like_video.user.icon.url unless like_video.user.icon.url.nil? %></i> <%= like_video.user.name %></p>
+          <p>投稿者: <i class = "circle"><%= like_video.user.icon.url.present? ? image_tag(like_video.user.icon) : image_tag('default_icon.jpg') %></i> <%= like_video.user.name %></p>
           <p>いいね数<%= like_video.likes_count %></p>
           <p>コメント数<%= like_video.comments.count %></p>
         </div>

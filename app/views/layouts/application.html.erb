@@ -20,7 +20,7 @@
       <% end %>
       <% if user_signed_in? %>
         <li class="nav-item circle" >
-          <%= image_tag current_user.icon.url unless current_user.icon.url.nil? %>
+          <%= current_user.icon.url.present? ? image_tag(current_user.icon.url) : image_tag('default_icon.jpg') %>
         </li>
         <li class="nav-item" >
           <%= link_to "#{current_user.name}のページ", user_path(current_user.id), class: "nav-link text-dark" %>

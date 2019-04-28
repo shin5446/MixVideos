@@ -1,6 +1,6 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
-    <br><i class = "circle"><%= image_tag comment.user.icon.url unless comment.user.icon.url.nil? %></i>
+    <br><i class = "circle"><%= comment.user.icon.url.present? ? image_tag(comment.user.icon.url) : image_tag('default_icon.jpg') %></i>
     <%= link_to "#{comment.user.name}", user_path(comment.user.id) %>
     <p class = "balloon1-left"><%= comment.content %>
       <% if comment.user == current_user %>

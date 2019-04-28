@@ -1,6 +1,6 @@
 <% @following.each do |user| %>
   <div class="card mb-3" style="text-align: center">
-    <i class="mt-2"><%= image_tag user.icon.url(:midium) unless user.icon.url.nil?%></i>
+    <i class="mt-2"><%= user.icon.url.present? ? image_tag(user.icon.url(:midium)) : image_tag('default_icon.jpg', size: "200x200") %></i>
     <div class="card-body">
       <h3><%= user.name %></h3>
       <div class="mx-auto" style="width: 200px; text-align: center">
