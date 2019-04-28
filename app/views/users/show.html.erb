@@ -2,30 +2,7 @@
   <div class="py-3">
     <div class="container">
       <div class="row">
-        <div class="col-3">
-            <div class="card mb-3">
-              <i class="mt-2" style="text-align: center"><%= image_tag @user.icon.url(:midium) unless @user.icon.url.nil?%></i>
-              <div class="card-body">
-                <h3><%= @user.name %></h3>
-                <table>
-                  <tr>
-                    <td>投稿 </td>
-                    <td> フォロー</td>
-                    <td>フォロワー</td>
-                  <tr>
-                    <td><%= @user.videos.count %></td>
-                    <td><%= @user.following.count %></td>
-                    <td><%= @user.followers.count %></td>
-                  </tr>
-                </table>
-                <hr>
-                <b><%= @user.introduction %></b><br>
-                <%if current_user.try(:id) == @user.id %>
-                  <%= link_to "編集", edit_user_registration_path, class: "btn btn-success btn-sm float-right" %>
-                <% end %>
-              </div>
-            </div>
-        </div>
+        <%=render 'user_info' %>
         <div class="col-9">
             <div class="card mb-3">
               <div class="row bg-light" style="text-align: center">
