@@ -1,8 +1,62 @@
- <h2>ユーザー</h2>
-  <% @users.each do |user| %>
-    <% if current_user.id != user.id %>
-      <%= link_to "#{user.name}", user_path(user.id) %>
-    <% end %>
-    <%= render 'follow_form', user: user %>
-  <% end %>
-  <%= link_to "一覧へ戻る", videos_path, class: "btn btn-light" %>
+<div class="bg-light mt-5">
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <div class="card mb-3">
+            <i class="mt-2" style="text-align: center"><%= image_tag current_user.icon.url(:midium) unless current_user.icon.url.nil?%></i>
+            <div class="card-body">
+              <h3><%= current_user.name %></h3>
+              <table>
+                <tr>
+                  <td>投稿 </td>
+                  <td> フォロー</td>
+                  <td>フォロワー</td>
+                <tr>
+                  <td><%= current_user.videos.count %></td>
+                  <td><%= current_user.following.count %></td>
+                  <td><%= current_user.followers.count %></td>
+                </tr>
+              </table>
+              <hr>
+              <b><%= current_user.introduction %></b><br>
+              <%if current_user.try(:id) == current_user.id %>
+                <%= link_to "編集", edit_user_registration_path, class: "btn btn-success btn-sm float-right" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-9">
+          <% @users.each do |user| %>
+            <% if current_user.id != user.id %>
+              <div class="card mb-3" style="text-align: center">
+                <i class="mt-2"><%= image_tag user.icon.url(:midium) unless user.icon.url.nil?%></i>
+                <div class="card-body">
+                  <h3><%= user.name %></h3>
+                  <div class="mx-auto" style="width: 200px; text-align: center">
+                  <table>
+                    <tr>
+                      <td>投稿 </td>
+                      <td> フォロー</td>
+                      <td>フォロワー</td>
+                    <tr>
+                      <td><%= user.videos.count %></td>
+                      <td><%= user.following.count %></td>
+                      <td><%= user.followers.count %></td>
+                    </tr>
+                  </table>
+                  </div>
+                  <hr>
+                  <b><%= user.introduction %></b><br>
+                  <%= render 'follow_form', user: user %><br>
+                  <%= link_to "このユーザーのページに行く", user_path(user.id), class: "btn btn-primary btn-sm" %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+<div class="mx-auto" style="width: 350px; text-align: center">
+  <%= link_to '戻る', videos_path, class: "btn btn-outline-dark btn-sm w-50 mt-3" %>
+</div>
