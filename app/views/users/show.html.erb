@@ -47,9 +47,7 @@
               <% if @post_videos.present? %>
                   <%= render 'post_video' %>
               <% elsif @like_videos.present? %>
-                <div class="card mb-3">
                   <%= render 'like_video' %>
-                </div>
               <% else %>
                 <h2 style="text-align: center">表示出来る動画がありません</h2>
               <% end %>
