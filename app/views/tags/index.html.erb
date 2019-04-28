@@ -3,4 +3,6 @@
   <% @tags.each do |tag| %>
     <%= link_to "#{tag.name}(#{tag.taggings_count})", videos_path(tag_name: tag.name), class: "btn btn-dark my-2" %>
   <% end %> <br>
-  <%= link_to "一覧へ戻る", videos_path, class: "btn btn-light my-2" %>
+  <div style="text-align: center">
+    <%= link_to "戻る", videos_path, class: "btn btn-outline-dark btn-sm my-2 w-25" %>
+  </div>
