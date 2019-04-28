@@ -1,19 +1,30 @@
-<h1 class="mb-5">投稿動画</h1>
-<table class="table table-hover">
-  <% unless @post_videos.first == nil %>
-    <% @post_videos.each do |post_video| %>
-    <tr>
-      <td>タイトル</td>
-      <td><%= post_video.title %></td>
-    </tr>
-    <tr>
-      <td>投稿者</td>
-      <td><%= post_video.user.name %></td>
-    </tr>
-    <tr>
-      <td>動画</td>
-      <td><iframe width="560" height="315" src=<%= embed_url(post_video) %> allowfullscreen></iframe></td>
-    </tr>
-    <% end %>
+<% unless @post_videos.first == nil %>
+  <% @post_videos.each do |post_video| %>
+    <div class="card mb-3">
+      <div class="row">
+        <div class="card-body col-6">
+          <iframe width="320" height="200" src=<%= embed_url(post_video) %> allowfullscreen></iframe>
+          <p><%= post_video.title %></p>
+          <p>投稿者: <i class = "circle"><%= image_tag post_video.user.icon.url unless post_video.user.icon.url.nil? %></i> <%= post_video.user.name %></p>
+          <p>いいね数<%= post_video.likes_count %></p>
+          <p>コメント数<%= post_video.comments.count %></p>
+        </div>
+        <div class="card-body col-6 box">
+          <p>ジャンル:
+            <% post_video.genres.each do |genre| %>
+              <%= link_to genre.name, videos_path(genre_id: genre.id), class: "badge badge-primary p-1" %>
+            <% end %>
+          </p>
+          <p>タグ:
+            <%= render 'videos/tag_list', tag_list: post_video.tag_list %>
+          </p>
+          <%= link_to '詳細', video_path(post_video.id) ,class: "btn btn-primary btn-sm w-25" %>
+          <% if current_user.try(:id) == post_video.user_id %>
+            <%= link_to "編集", edit_video_path(post_video.id), method: :get, class: "btn btn-success btn-sm w-25" %>
+            <%= link_to '削除', video_path(post_video.id), method: :delete,data: { confirm: '本当に削除していいですか？'}, class: "btn btn-danger btn-sm w-25" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% end %>
-</table>
+<% end %>

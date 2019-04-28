@@ -45,9 +45,7 @@
             </div>
             <% if  @type == 'post' || @type == 'like' %>
               <% if @post_videos.present? %>
-                <div class="card mb-3">
                   <%= render 'post_video' %>
-                </div>
               <% elsif @like_videos.present? %>
                 <div class="card mb-3">
                   <%= render 'like_video' %>
