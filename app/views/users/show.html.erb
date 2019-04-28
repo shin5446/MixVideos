@@ -53,13 +53,9 @@
               <% end %>
             <% elsif @type == 'following' || @type == 'followers'%>
               <%if @following.present? %>
-                <div class="card mb-3">
                   <%= render 'following' %>
-                </div>
               <% elsif @followers.present? %>
-                <div class="card mb-3">
                   <%= render 'follower' %>
-                </div>
               <% else %>
                 <h2 style="text-align: center">表示出来るユーザーがいません</h2>
               <% end %>

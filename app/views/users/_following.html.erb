@@ -1,4 +1,24 @@
-<h2>フォローしているユーザー</h2>
-    <% @following.each do |user| %>
-        <%= link_to "#{user.name}", user_path(user.id) %> <br>
-    <% end %>
+<% @following.each do |user| %>
+  <div class="card mb-3" style="text-align: center">
+    <i class="mt-2"><%= image_tag user.icon.url(:midium) unless user.icon.url.nil?%></i>
+    <div class="card-body">
+      <h3><%= user.name %></h3>
+      <div class="mx-auto" style="width: 200px; text-align: center">
+      <table>
+        <tr>
+          <td>投稿 </td>
+          <td> フォロー</td>
+          <td>フォロワー</td>
+        <tr>
+          <td><%= user.videos.count %></td>
+          <td><%= user.following.count %></td>
+          <td><%= user.followers.count %></td>
+        </tr>
+      </table>
+      </div>
+      <hr>
+      <b><%= user.introduction %></b><br>
+        <%= link_to "このユーザーのページに行く", user_path(user.id), class: "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+<% end %>
