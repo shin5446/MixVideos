@@ -5,15 +5,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    type = params[:type]
+    @type = params[:type]
 
-    if type == 'post'
+    if @type == 'post'
       @post_videos = @user.videos
-    elsif type == 'like'
+    elsif @type == 'like'
       @like_videos = @user.like_videos
-    elsif type == 'following'
+    elsif @type == 'following'
       @following = @user.following
-    elsif type == 'followers'
+    elsif @type == 'followers'
       @followers = @user.followers
     end
   end

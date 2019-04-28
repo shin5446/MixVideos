@@ -1,19 +1,19 @@
 <h1 class="mb-5">投稿動画</h1>
-  <table class="table table-hover">
-    <% unless @post_videos.first == nil %>
-      <% @post_videos.each do |post_video| %>
-      <tr>
-        <td>タイトル</td>
-        <td><%= post_video.title %></td>
-      </tr>
-      <tr>
-        <td>投稿者</td>
-        <td><%= post_video.user.name %></td>
-      </tr>
-      <tr>
-        <td>動画</td>
-        <td><iframe width="560" height="315" src=<%= embed_url(post_video) %> allowfullscreen></iframe></td>
-      </tr>
-      <% end %>
+<table class="table table-hover">
+  <% unless @post_videos.first == nil %>
+    <% @post_videos.each do |post_video| %>
+    <tr>
+      <td>タイトル</td>
+      <td><%= post_video.title %></td>
+    </tr>
+    <tr>
+      <td>投稿者</td>
+      <td><%= post_video.user.name %></td>
+    </tr>
+    <tr>
+      <td>動画</td>
+      <td><iframe width="560" height="315" src=<%= embed_url(post_video) %> allowfullscreen></iframe></td>
+    </tr>
     <% end %>
-  </table>
+  <% end %>
+</table>

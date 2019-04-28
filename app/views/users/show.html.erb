@@ -1,4 +1,4 @@
-<div class="bg-light">
+<div class="bg-light mt-5">
   <div class="py-3">
     <div class="container">
       <div class="row">
@@ -43,24 +43,30 @@
                 </div>
               </div>
             </div>
-            <% if @post_videos.present? %>
-              <div class="card mb-3">
-                <%= render 'post_video' %>
-              </div>
-            <% elsif @like_videos.present? %>
-              <div class="card mb-3">
-                <%= render 'like_video' %>
-              </div>
-            <% elsif @following.present? %>
-              <div class="card mb-3">
-                <%= render 'following' %>
-              </div>
-            <% elsif @followers.present? %>
-              <div class="card mb-3">
-                <%= render 'follower' %>
-              </div>
-            <% else %>
-            <h2 style="text-align: center">表示出来るユーザーやコンテンツがありません</h2>
+            <% if  @type == 'post' || @type == 'like' %>
+              <% if @post_videos.present? %>
+                <div class="card mb-3">
+                  <%= render 'post_video' %>
+                </div>
+              <% elsif @like_videos.present? %>
+                <div class="card mb-3">
+                  <%= render 'like_video' %>
+                </div>
+              <% else %>
+                <h2 style="text-align: center">表示出来る動画がありません</h2>
+              <% end %>
+            <% elsif @type == 'following' || @type == 'followers'%>
+              <%if @following.present? %>
+                <div class="card mb-3">
+                  <%= render 'following' %>
+                </div>
+              <% elsif @followers.present? %>
+                <div class="card mb-3">
+                  <%= render 'follower' %>
+                </div>
+              <% else %>
+                <h2 style="text-align: center">表示出来るユーザーがいません</h2>
+              <% end %>
             <% end %>
         </div>
       </div>
