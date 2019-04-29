@@ -261,29 +261,24 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   color: #fff;
 }
 
-.container_text {
-  overflow: hidden;
-  p {
+  .omit_text {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    height: 80px;
   }
-}
 
-.container_text{
-  position: relative;
-}
-  .container_text table{
+   .count_table{
     position: absolute;
     bottom: 0px;
   }
-  .container_text .user_btn{
+   .user_btn{
     position: absolute;
     bottom: 2px;
     right: 15px;
 
   }
-  .container_text .follow_btn{
+   .follow_btn{
     position: absolute;
     bottom: 2px;
     left: 40%;

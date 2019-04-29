@@ -34,10 +34,10 @@
                   <div class="col-3">
                     <i><%= user.icon.url.present? ? image_tag(user.icon.url(:small)) : image_tag('default_icon.jpg',size:"150x150") %></i>
                   </div>
-                  <div class="col-9 container_text mt-2">
+                  <div class="col-9 mt-2">
                     <b ><%= user.name %></b><br><br>
-                    <p><%= user.introduction %></p>
-                    <table>
+                    <p class="omit_text"><%= user.introduction %></p>
+                    <table class="count_table">
                     <tr>
                       <td>投稿 </td>
                       <td> フォロー</td>
