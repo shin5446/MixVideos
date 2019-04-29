@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-3">
           <div class="card mb-3">
-            <i class="mt-2" style="text-align: center"><%= current_user.icon.url.present? ? image_tag(current_user.icon.url(:midium)) : image_tag('default_icon.jpg') %></i>
+            <i class="mt-2" style="text-align: center"><%= current_user.icon.url.present? ? image_tag(current_user.icon.url(:midium)) : image_tag('default_icon.jpg', size: "200x200") %></i>
             <div class="card-body">
               <h3><%= current_user.name %></h3>
               <table>
