@@ -14,7 +14,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :small do
-    process resize_to_fit: [170, 170]
+    process resize_to_fit: [150, 150]
   end
 
   def store_dir
