@@ -29,33 +29,39 @@
         <div class="col-9">
           <% @users.each do |user| %>
             <% if current_user.id != user.id %>
-              <div class="card mb-3" style="text-align: center">
-                <i class="mt-2"><%= user.icon.url.present? ? image_tag(user.icon.url(:midium)) : image_tag('default_icon.jpg',size: "200x200") %></i>
-                <div class="card-body">
-                  <h3><%= user.name %></h3>
-                  <div class="mx-auto" style="width: 200px; text-align: center">
-                  <table>
+              <div class="card mb-3" style="height: 150px">
+                <div class="row">
+                  <div class="col-3">
+                    <i><%= user.icon.url.present? ? image_tag(user.icon.url(:small)) : image_tag('default_icon.jpg',size:"150x150") %></i>
+                  </div>
+                  <div class="col-9 container_text mt-2">
+                    <b ><%= user.name %></b><br><br>
+                    <p><%= user.introduction %></p>
+                    <table>
                     <tr>
                       <td>投稿 </td>
                       <td> フォロー</td>
                       <td>フォロワー</td>
-                    <tr>
+                    <tr style="text-align: center">
                       <td><%= user.videos.count %></td>
                       <td><%= user.following.count %></td>
                       <td><%= user.followers.count %></td>
                     </tr>
-                  </table>
+                    </table>
+                    <div class="user_btn">
+                      <%= link_to "ユーザーのページに行く", user_path(user.id), class: "btn btn-primary btn-sm float-right h-75" %>
+                    </div>
+                      <%= render 'follow_form', user: user %>
                   </div>
-                  <hr>
-                  <b><%= user.introduction %></b><br>
-                  <%= render 'follow_form', user: user %><br>
-                  <%= link_to "このユーザーのページに行く", user_path(user.id), class: "btn btn-primary btn-sm" %>
                 </div>
               </div>
             <% end %>
           <% end %>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
 <div class="mx-auto" style="width: 350px; text-align: center">
   <%= link_to '戻る', videos_path, class: "btn btn-outline-dark btn-sm w-50 mt-3" %>
