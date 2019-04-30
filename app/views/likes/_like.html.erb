@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+  <% if @like.present? %>
+    <%= link_to like_path(id: @like.id), method: :delete, id: "like-button", remote: true do %>
+      <span class="heart"><i class="fas fa-heart"></i><%= @video.likes_count %></span>
+    <% end %>
+  <% else %>
+    <%= link_to likes_path(video_id: @video.id), id: "like-button", remote: true do %>
+      <span class="heart"><i class="far fa-heart"></i><%= @video.likes_count %></span>
+    <% end %>
+  <% end %>
+<% else %>
+  <span class="heart"><i class="far fa-heart"></i></span>
+    <%= @video.likes_count %>
+<% end %>

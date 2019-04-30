@@ -18,13 +18,8 @@
           <% end %><p>
             タグ <%= render 'videos/tag_list', tag_list: @video.tag_list %>
           </p>
-          <% unless @video.user_id == current_user.try(:id) %>
-            <% if @like.present? %>
-              <%= link_to 'いいね解除'"(#{@video.likes_count})",like_path(id: @like.id), method: :delete, class: 'btn btn-danger btn-sm' %>
-            <% else %>
-              <%= link_to 'いいね'"(#{@video.likes_count})",likes_path(video_id: @video.id), method: :post, class: 'btn btn-primary btn-sm' %>
-            <% end %>
-        　<% end %>
+          <%= render 'likes/like' %>
+
         コメント数<%= @video.comments.count %>
         </div>
       </div>
