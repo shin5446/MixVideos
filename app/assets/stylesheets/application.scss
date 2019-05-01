@@ -260,7 +260,7 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   display: block;
   color: #fff;
 }
-
+  
   .omit_text {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -283,4 +283,12 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     bottom: 2px;
     left: 40%;
 
+  }
+
+  // いいねハートのデザイン
+  .heart{
+    color: red;
+  }
+  .heart_empty{
+    color: red;
   }
