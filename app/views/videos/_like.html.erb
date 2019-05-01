@@ -1,20 +1,21 @@
-<% unless @video.user_id == current_user.try(:id) %>
-  <% if current_user.likes.present? %>
-    <%= link_to like_path(@like,video_id: @video.id),id:"like_btn-#{@video.id}", method: :delete, remote: true do %>
-      <span class="heart"><i class="fas fa-heart"></i></span>
-      <span>
-        <%= @video.likes_count %>
-      </span>
+<% if user_signed_in? %>
+  <% unless @video.user_id == current_user.try(:id) %>
+    <% if current_user.likes.present? %>
+      <%= link_to like_path(@like,video_id: @video.id), method: :delete, remote: true do %>
+        <span class="heart"><i class="fas fa-heart"></i></span>
+      <% end %>
+      <%= @video.likes_count %>
+    <% else %>
+      <%= link_to likes_path(video_id: @video.id), remote: true, method: :post do %>
+        <span class="heart"><i class="far fa-heart"></i></span>
+      <% end %>
+      <%= @video.likes_count %>
     <% end %>
   <% else %>
-    <%= link_to likes_path(video_id: @video.id), id:"like_btn-#{@video.id}", remote: true, method: :post do %>
-      <span class="heart"><i class="far fa-heart"></i></span>
-      <span>
-        <%= @video.likes_count %>
-      </span>
-    <% end %>
+    <i class="far fa-heart"></i>
+    <%= @video.likes_count %>
   <% end %>
 <% else %>
   <i class="far fa-heart"></i>
-    <%= @video.likes_count %>
+  <%= @video.likes_count %>
 <% end %>
