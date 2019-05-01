@@ -18,7 +18,9 @@
           <% end %><p>
             タグ <%= render 'videos/tag_list', tag_list: @video.tag_list %>
           </p>
-          <%= render 'likes/like' %>
+          <div id="like_btn">
+            <%= render 'videos/like', video: @video, like: @like %>
+          </div>
 
         コメント数<%= @video.comments.count %>
         </div>

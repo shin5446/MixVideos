@@ -21,6 +21,10 @@ class Video < ApplicationRecord
   scope :sort_created_at, -> { order(created_at: :desc) }
   scope :sort_genre, ->(genre_id) { where(id: genre_ids = VideoGenre.where(genre_id: genre_id).select(:video_id)) }
 
+  def like?(video, user)
+    video.likes.find_by(user_id: user.id)
+  end
+
   private
 
   # 不正なURLを弾くために独自のバリデーションを実装

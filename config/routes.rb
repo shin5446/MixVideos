@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   # いいね関連
-  resources :likes, only: %i[show create destroy]
+  resources :likes, only: %i[create destroy]
 
   # フォローフォロワー関連
   resources :relationships, only: %i[show create destroy]

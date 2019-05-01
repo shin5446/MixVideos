@@ -2,12 +2,14 @@ class LikesController < ApplicationController
   before_action :authenticate_user!, only: %i[create destroy]
 
   def create
-    like = current_user.likes.create(video_id: params[:video_id]) unless current_user.nil?
-    redirect_to videos_url flash[:success] = "#{like.video.user.name}さんの動画をいいねしました"
+    @like = current_user.likes.create(video_id: params[:video_id])
+    @video = @like.video
+    render 'create.js.erb'
   end
 
   def destroy
-    like = current_user.likes.find_by(id: params[:id]).destroy
-    redirect_to videos_url flash[:danger] = "#{like.video.user.name}さんの動画をいいね解除しました"
+    @like = current_user.likes.find_by(video_id: params[:video_id]).destroy
+    @video = Video.find(params[:video_id])
+    render 'destroy.js.erb'
   end
 end
