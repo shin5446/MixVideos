@@ -18,7 +18,7 @@
           <% end %><p>
             タグ <%= render 'videos/tag_list', tag_list: @video.tag_list %>
           </p>
-          <div id="like_btn">
+          <div id="like_btn-<%= @video.id %>">
             <%= render 'videos/like', video: @video, like: @like %>
           </div>
 
