@@ -1,2 +1,2 @@
 $('#like_btn-<%= @video.id %>').
-  html('<%= j(render partial: 'videos/like', locals: {video_id: @video.id}) %>');
+  html('<%= escape_javascript(render partial: 'videos/like', locals: {like: @like,video_id: @video.id}) %>');

@@ -3,7 +3,8 @@ class LikesController < ApplicationController
 
   def create
     @like = current_user.likes.create(video_id: params[:video_id])
-    @video = @like.video
+    @like.reload
+    @video = Video.find(params[:video_id])
     render 'create.js.erb'
   end
 
