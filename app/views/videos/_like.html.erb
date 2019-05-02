@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <% unless @video.user_id == current_user.try(:id) %>
-    <% if @video.like?(@video,current_user) %>
+    <% if @video.like?(@video, current_user) %>
       <%= link_to like_path(@like, video_id: @video.id), method: :delete, remote: true do %>
         <span class="heart"><i class="fas fa-heart"></i></span>
       <% end %>
