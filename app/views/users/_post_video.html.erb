@@ -7,7 +7,7 @@
           <p><%= post_video.title %></p>
           <p>投稿者: <i class = "circle"><%= post_video.user.icon.url.present? ? image_tag(post_video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= post_video.user.name %></p>
           <p>いいね数<%= post_video.likes_count %></p>
-          <p>コメント数<%= post_video.comments.count %></p>
+          <p><i class="fas fa-comment comment"></i> <%= post_video.comments.count %></p>
         </div>
         <div class="card-body col-6 box">
           <p>ジャンル:
