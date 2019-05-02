@@ -26,6 +26,13 @@ ul {
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
 // サインインフォーム
 #logreg-forms{
   width:412px;
