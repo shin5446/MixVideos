@@ -267,15 +267,14 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   display: block;
   color: #fff;
 }
-
-
+  
   .omit_text {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     height: 80px;
   }
-// 一定以上の文字を表示しない
+
    .count_table{
     position: absolute;
     bottom: 0px;
@@ -304,28 +303,4 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   // コメントアイコンのデザイン
   .comment{
     color: rgb(139, 136, 139)
-  }
-
-  // ジャンル選択のチェックボックスのデザイン
-  input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    display: none;
-    & + label {
-      display: inline-block;
-      box-sizing: border-box;
-      color: gray;
-      border: solid 1px;
-      border-radius: 4px;
-      box-sizing: border-box;
-      background-color: white;
-      padding: 5px 10px;
-      cursor: pointer;
-      margin-right: 4px;
-    }
-    &:checked + label {
-      color: gray;
-      background-color:#08EBFF;
-      border: solid 1px ;
-    }
   }
