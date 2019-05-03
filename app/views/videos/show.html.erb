@@ -9,35 +9,32 @@
   </div>
   <div class="bg-light">
     <div class="px-2 py-3">
-      <div class="card mr-2" >
-      <h3 class="card-title" style="text-align: center"><%= @video.title %></h3><hr>
-        <iframe width="1055" height="700" src=<%= @url %> allowfullscreen></iframe><hr>
-        <div class="card-body">
-        ジャンル <% @video.genres.each do |genre| %>
-            <%= link_to genre.name, videos_path(genre_id: genre.id), class: "badge badge-primary p-1" %>
-          <% end %><p>
-            タグ <%= render 'videos/tag_list', tag_list: @video.tag_list %>
-          </p>
-          <div id="like_btn">
-            <%= render 'videos/like' %>
-          </div>
+      <div class="card">
+        <h3 class="card-title" style="text-align: center"><%= @video.title %></h3><hr>
+        <iframe width="1055" height="700" src=<%= @url %> allowfullscreen></iframe>
+      </div>
 
-        <i class="fas fa-comment comment"></i>
-        <%= @video.comments.count %>
+      <div class="row">
+        <div class="card col-6">
+          <div class = "card-body">
+            ジャンル <% @video.genres.each do |genre| %>
+              <%= link_to genre.name, videos_path(genre_id: genre.id), class: "badge badge-primary p-1" %>
+            <% end %>
+            <p>タグ <%= render 'videos/tag_list', tag_list: @video.tag_list %></p>
+            <div id="like_btn">
+              <%= render 'videos/like' %><i class="fas fa-comment comment"></i>
+              <%= @video.comments.count %>
+            </div>
+          </div>
+        </div>
+        <div class="card col-6">
+          <div style="text-align: center">
+            <h4>動画の内容</h4><hr>
+            <b><%= @video.content %></b>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="bg-light">
-    <div class="px-2 py-3">
-      <div class="card" >
-        <div class="card-body" style="text-align: center">
-        <h3>内容</h3><hr>
-          <%= @video.content %>
-        </div>
-      </div>
-    </div>
-  </div>
   </div>
   <div>
     <div id="comments_area"><%= render partial: 'comments/index', locals: { comments: @comments, video: @video } %></div>
