@@ -63,10 +63,13 @@
             <div class="card mb-3">
               <div class="row">
                 <div class="card-body col-6">
-                  <iframe width="320" height="200" src=<%= embed_url(video) %> allowfullscreen></iframe>
-                  <p><%= video.title %></p>
+                  <iframe width="350" height="200" src=<%= embed_url(video) %> allowfullscreen></iframe>
+                  <p><%= video.title %></p><hr>
                   <p>投稿者: <i class = "circle"><%= video.user.icon.url.present? ? image_tag(video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= video.user.name %></p>
-                  <p><i class="far fa-heart"></i> <%= video.likes_count %> <i class="fas fa-comment comment"></i> <%= video.comments.count %></p>
+                  <span><i class="far fa-heart"></i> <%= video.likes_count %> <i class="fas fa-comment comment"></i> <%= video.comments.count %></span>
+                  <span class="float-right">
+                    <%= "#{video.created_at}に投稿" %>
+                  </span>
                 </div>
                 <div class="card-body col-6 box">
                   <p>ジャンル:
