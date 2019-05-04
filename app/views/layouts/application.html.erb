@@ -32,7 +32,9 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "タグ一覧", tags_path, class: "nav-link text-dark"  %>
+          <%= link_to tags_path, class: "nav-link text-dark" do %>
+            <i class="fas fa-tags"> タグ一覧</i>
+          <% end %>
         </li>
         <li class="nav-item">
           <%= link_to  'ユーザー一覧', users_path, class: "nav-link text-dark"  %>
@@ -53,7 +55,9 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "タグ一覧", tags_path, class: "nav-link text-dark"  %>
+          <%= link_to tags_path, class: "nav-link text-dark" do %>
+            <i class="fas fa-tags"> タグ一覧</i>
+          <% end %>
         </li>
       <% end %>
     </ul>
