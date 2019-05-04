@@ -13,7 +13,7 @@
         <div class="card-body col-6 box">
           <p>ジャンル:
             <% like_video.genres.each do |genre| %>
-              <%= link_to genre.name, videos_path(genre_id: genre.id), class: "badge badge-primary p-1" %>
+              <%= link_to genre.name, videos_path(genre_id: genre.id), class: "btn btn-sm my-1 genre_btn" %>
             <% end %>
           </p>
           <p>タグ:

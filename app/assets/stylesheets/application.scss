@@ -324,7 +324,30 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     }
     &:checked + label {
       color: gray;
-      background-color:#08EBFF;
+      background-color:#b3d3f7;
       border: solid 1px ;
     }
+  }
+
+  // ジャンルのボタンのデザイン
+  .genre_btn{
+    background-color:#b3d3f7;
+    color: gray;
+    border: solid 1px;
+  }
+  .genre_btn:hover{
+    background-color:#b3d3f7;
+    color: black;
+    border: solid 1px;
+  }
+  // タグのボタンのデザイン
+  .tag_btn{
+    background-color:#c1f7ed;
+    color: gray;
+    border: solid 1px;
+  }
+  .tag_btn:hover{
+    background-color:#c1f7ed;
+    color: black;
+    border: solid 1px;
   }
