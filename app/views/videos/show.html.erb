@@ -24,16 +24,9 @@
                 <%= link_to genre.name, videos_path(genre_id: genre.id), class: "badge badge-primary p-1" %>
               <% end %>
               <p>タグ <%= render 'videos/tag_list', tag_list: @video.tag_list %></p>
-              <span id="like_btn">
-                <%= render 'videos/like' %>
-              </span>
-              <span>
-                <i class="fas fa-comment comment"></i>
-                <%= @video.comments.count %>
-              </span>
-              <span class="float-right">
-                <%= "#{@video.created_at}に投稿" %>
-              </span>
+              <span id="like_btn"><%= render 'videos/like' %></span>
+              <span><i class="fas fa-comment comment"></i><%= @video.comments.count %></span>
+              <span class="float-right"><%= "#{@video.created_at}に投稿" %></span>
             </div>
           </div>
           <div class="card col-6">
