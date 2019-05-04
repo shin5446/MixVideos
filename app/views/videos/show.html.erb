@@ -10,28 +10,32 @@
   <div class="bg-light">
     <div class="px-2 py-3">
       <div class="card">
-        <h3 class="card-title" style="text-align: center"><%= @video.title %></h3><hr>
         <div style="text-align: center">
           <iframe width="1000" height="500" src=<%= @url %> allowfullscreen></iframe>
         </div>
       </div>
-      <div class="px-3 mt-2" style="text-align: center">
+      <div class="px-3 mt-2">
         <div class="row">
           <div class="card col-6">
-            <div class = "card-body">
+            <div>
+              <h4 style="text-align: center"><%= @video.title %></h4><hr>
+              <p>投稿者: <i class = "circle"><%= @video.user.icon.url.present? ? image_tag(@video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= @video.user.name %></p>
               ジャンル <% @video.genres.each do |genre| %>
                 <%= link_to genre.name, videos_path(genre_id: genre.id), class: "badge badge-primary p-1" %>
               <% end %>
               <p>タグ <%= render 'videos/tag_list', tag_list: @video.tag_list %></p>
-              <div id="like_btn">
-                <%= render 'videos/like' %><i class="fas fa-comment comment"></i>
+              <span id="like_btn">
+                <%= render 'videos/like' %>
+              </span>
+              <span>
+                <i class="fas fa-comment comment"></i>
                 <%= @video.comments.count %>
-              </div>
+              </span>
             </div>
           </div>
           <div class="card col-6">
             <div>
-              <h4>動画の内容</h4><hr>
+              <h4 style="text-align: center">動画の内容</h4><hr>
               <b><%= @video.content %></b>
             </div>
           </div>
