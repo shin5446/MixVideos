@@ -24,7 +24,9 @@
           <%= current_user.icon.url.present? ? image_tag(current_user.icon.url) : image_tag('default_icon.jpg') %>
         </li>
         <li class="nav-item" >
-          <%= link_to "#{current_user.name}のページ", user_path(current_user.id), class: "nav-link text-dark" %>
+          <%= link_to user_path(current_user.id), class: "nav-link text-dark" do %>
+            <i class="fas fa-user"> マイページ</i>
+          <% end %>
         </li>
         <li class="nav-item">
           <%= link_to videos_path, class: "nav-link text-dark" do %>
