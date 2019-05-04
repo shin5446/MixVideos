@@ -16,7 +16,15 @@
   <%= link_to "新着順", videos_path(sort_created_at: true), class: "btn btn-outline-primary btn-sm w-25"%>
   <%= link_to "人気順", videos_path(sort_like: true), class: "btn btn-outline-primary btn-sm w-25"%>
 </div>
-  <%= link_to '新しく動画を投稿する', new_video_path, class: "btn btn-primary" %>
+<div class="px-2 py-3">
+  <div class="row">
+    <div class="col-3" style="text-align: center">
+      <%= link_to new_video_path, class: "btn btn-primary" do %>
+      <i class="fa fa-plus"> 新しく動画を投稿する</i>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <div class="bg-light">
   <div class="px-2 py-3">
