@@ -53,7 +53,9 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "新規登録", new_user_registration_path, class: "nav-link text-dark"  %>
+          <%= link_to new_user_registration_path, class: "nav-link text-dark" do %>
+            <i class="fas fa-user-plus"> 新規登録</i>
+          <% end %>
         </li>
         <li class="nav-item">
           <%= link_to videos_path, class: "nav-link text-dark" do %>
