@@ -17,22 +17,19 @@
       <div class="px-3 mt-2">
         <div class="row">
           <div class="card col-6">
-            <div>
-              <h4 style="text-align: center"><%= @video.title %></h4><hr>
-              <p>投稿者: <i class = "circle"><%= @video.user.icon.url.present? ? image_tag(@video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= @video.user.name %></p>
-              ジャンル <% @video.genres.each do |genre| %>
-                <%= link_to genre.name, videos_path(genre_id: genre.id), class: "badge badge-primary p-1" %>
-              <% end %>
-              <p>タグ <%= render 'videos/tag_list', tag_list: @video.tag_list %></p>
-              <span id="like_btn">
-                <%= render 'videos/like' %>
+            <h4 style="text-align: center"><%= @video.title %></h4><hr>
+            <p>投稿者: <i class = "circle"><%= @video.user.icon.url.present? ? image_tag(@video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= @video.user.name %></p>
+            ジャンル <% @video.genres.each do |genre| %>
+              <%= link_to genre.name, videos_path(genre_id: genre.id), class: "badge badge-primary p-1" %>
+            <% end %>
+            <p>タグ <%= render 'videos/tag_list', tag_list: @video.tag_list %></p>
+            <span id="like_btn">
+              <%= render 'videos/like' %>
+            </span>
+            <span>
+              <i class="fas fa-comment comment"></i>
+              <%= @video.comments.count %>
               </span>
-              <span>
-                <i class="fas fa-comment comment"></i>
-                <%= @video.comments.count %>
-              </span>
-            </div>
-          </div>
           <div class="card col-6">
             <div>
               <h4 style="text-align: center">動画の内容</h4><hr>
