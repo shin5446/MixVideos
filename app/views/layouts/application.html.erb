@@ -37,7 +37,9 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to  'ユーザー一覧', users_path, class: "nav-link text-dark"  %>
+          <%= link_to users_path, class: "nav-link text-dark" do %>
+          <i class="fas fa-user-friends"> ユーザー一覧</i>
+          <% end %>
         </li>
         <li class="nav-item">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-dark"  %>
