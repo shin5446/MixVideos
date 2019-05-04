@@ -56,6 +56,7 @@
   </nav>
 </header>
     <div class = "container">
+      <div class="flash time-limit">
         <% flash.each do |key, value| %>
           <% if key == "danger" %>
             <%= content_tag(:div, value, class: "#{key} alert alert-danger") %>
@@ -63,7 +64,8 @@
             <%= content_tag(:div, value, class: "#{key} alert alert-success") %>
           <% end %>
         <% end %>
-        <%= yield %>
+      </div>
+          <%= yield %>
     </div>
   </body>
 </html>

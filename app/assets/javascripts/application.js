@@ -42,3 +42,8 @@ $(function(){
     reader.readAsDataURL(file);
   });
 });
+
+// フラッシュメッセージフェードアウト
+$(function(){
+  setTimeout("$('.time-limit').fadeOut('slow')", 2500)
+})
