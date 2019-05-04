@@ -60,8 +60,10 @@
         <% flash.each do |key, value| %>
           <% if key == "danger" %>
             <%= content_tag(:div, value, class: "#{key} alert alert-danger") %>
-          <% else %>
+          <% elsif key == "edit" %>
             <%= content_tag(:div, value, class: "#{key} alert alert-success") %>
+          <% elsif %>
+            <%= content_tag(:div, value, class: "#{key} alert alert-primary") %>
           <% end %>
         <% end %>
       </div>

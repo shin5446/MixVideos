@@ -20,6 +20,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     @video = @comment.video
+    flash[:edit] = 'コメントを編集しました'
     redirect_to video_path(@video) if @comment.update(comment_params)
   end
 

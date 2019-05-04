@@ -30,7 +30,7 @@ class VideosController < ApplicationController
   def create
     @video = current_user.videos.build(video_params)
     if @video.save
-      redirect_to videos_path flash[:success] = '登録しました'
+      redirect_to videos_path flash[:success] = '動画を投稿しました'
     else
       render 'new'
     end
@@ -47,7 +47,7 @@ class VideosController < ApplicationController
 
   def update
     if @video.update(video_params)
-      redirect_to videos_path flash[:success] = '動画を編集しました！'
+      redirect_to videos_path flash[:edit] = '動画を編集しました'
     else
       render 'edit'
     end
@@ -55,7 +55,7 @@ class VideosController < ApplicationController
 
   def destroy
     @video.destroy
-    redirect_to videos_path flash[:success] = '投稿を削除しました！'
+    redirect_to videos_path flash[:success] = '投稿を削除しました'
   end
 
   private
@@ -70,7 +70,7 @@ class VideosController < ApplicationController
 
   def correct_user
     unless current_user.id == @video.user_id
-      flash[:danger] = '他人の投稿は編集できません！'
+      flash[:danger] = '他人の投稿は編集できません'
       redirect_to videos_path
     end
   end
