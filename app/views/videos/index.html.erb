@@ -57,12 +57,15 @@
             </div>
           </div>
           <div class="card">
-            <div class="card-body">
+            <div class="card-body tag_box">
               <h5>タグから探す</h5>
               <% @tags.each do |tag| %>
               <%= link_to "#{tag.name}(#{tag.taggings_count})", videos_path(tag_name: tag.name), class: "btn btn-sm my-1 tag_btn" %>
             <% end %> <br>
             </div>
+            <%= link_to tags_path, class: "text-dark" do %>
+            <i class="fas fa-tags float-right mb-3 mr-3"> タグ一覧を見る</i>
+          <% end %>
           </div>
         </div>
 

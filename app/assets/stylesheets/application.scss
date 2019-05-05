@@ -267,7 +267,7 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   display: block;
   color: #fff;
 }
-  
+
   .omit_text {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -350,4 +350,8 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     background-color:#c1f7ed;
     color: black;
     border: solid 1px;
+  }
+
+  div.card-body.tag_box a:nth-child(n+15) {
+    display: none;
   }
