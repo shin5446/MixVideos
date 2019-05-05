@@ -22,6 +22,7 @@ gem 'omniauth-google-oauth2'
 # 画像アップロード関連
 gem 'mini_magick', '~> 4.8'
 gem 'carrierwave'
+gem 'fog-aws'
 # ページネーション関連
 gem 'kaminari', '~> 0.17.0'
 # デザイン関連
