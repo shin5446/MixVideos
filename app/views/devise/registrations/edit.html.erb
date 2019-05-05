@@ -26,6 +26,7 @@
                   <% if current_user.icon.url.present? %>
                     <%= image_tag(current_user.icon.url(:midium)) %>
                   <% else %>
+                  <i class="fas fa-user"></i><i class="fas fa-file-upload add"></i>
                   <% end %>
                 </div>
                 <%= f.file_field :icon, class: "image", style: "display:none;", id: "file"%>
