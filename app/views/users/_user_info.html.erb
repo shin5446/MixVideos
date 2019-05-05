@@ -17,7 +17,9 @@
         <hr>
         <b><%= @user.introduction %></b><br>
         <%if current_user.try(:id) == @user.id %>
-          <%= link_to "編集", edit_user_registration_path, class: "btn btn-success btn-sm float-right" %>
+          <%= link_to edit_user_registration_path, class: "btn btn-success btn-sm float-right" do %>
+            <i class="fas fa-edit"> 編集</i>
+          <% end %>
         <% end %>
       </div>
     </div>
