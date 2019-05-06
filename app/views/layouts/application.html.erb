@@ -21,7 +21,7 @@
       <% end %>
       <% if user_signed_in? %>
         <li class="nav-item" >
-          <%= active_link_to user_path(current_user.id), class: "nav-link text-dark" do %>
+          <%= active_link_to user_path(current_user.id, type: "post"), class: "nav-link text-dark" do %>
             <i class="fas fa-user"> マイページ</i>
           <% end %>
         </li>
