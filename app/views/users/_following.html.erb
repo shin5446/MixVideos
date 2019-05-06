@@ -19,7 +19,7 @@
         </tr>
         </table>
         <div class="user_btn">
-          <%= link_to user_path(user.id), class: "btn btn-primary btn-sm float-right h-75 mb-2 mr-2" do %>
+          <%= link_to user_path(user.id, type: "post"), class: "btn btn-primary btn-sm float-right h-75 mb-2 mr-2" do %>
             <i class="fas fa-arrow-circle-right"></i> このユーザーの詳細</i>
           <% end %>
         </div>
