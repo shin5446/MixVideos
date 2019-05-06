@@ -29,6 +29,7 @@ gem 'kaminari', '~> 0.17.0'
 gem 'bootstrap'
 gem 'jquery-ui-rails'
 gem "font-awesome-rails"
+gem "active_link_to"
 # メッセージの日本語化
 gem 'rails-i18n'
 # 検索関連
