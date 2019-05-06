@@ -19,7 +19,9 @@
         </tr>
         </table>
         <div class="user_btn">
-          <%= link_to "ユーザーのページに行く", user_path(user.id), class: "btn btn-primary btn-sm float-right h-75 mb-2 mr-2" %>
+          <%= link_to user_path(user.id), class: "btn btn-primary btn-sm float-right h-75 mb-2 mr-2" do %>
+            <i class="fas fa-arrow-circle-right"></i> このユーザーの詳細</i>
+          <% end %>
         </div>
           <%= render 'follow_form', user: user %>
       </div>
