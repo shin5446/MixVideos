@@ -7,7 +7,9 @@
         <%= link_to edit_video_comment_path(comment.video_id, comment.id), method: :get, class:"btn text-success btn-sm my-2" do %>
           <i class="fas fa-edit"> 編集</i>
         <% end %>
-        <%= link_to '削除', video_comment_path(comment.video_id, comment.id), method: :delete, remote: true, class:"btn text-danger btn-sm my-2" %>
+        <%= link_to video_comment_path(comment.video_id, comment.id), method: :delete, remote: true, class:"btn text-danger btn-sm my-2" do %>
+          <i class="fas fa-trash-alt"> 削除</i>
+        <% end %>
       <% end %>
     </p>
   <% end %>

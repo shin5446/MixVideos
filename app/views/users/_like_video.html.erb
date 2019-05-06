@@ -22,7 +22,9 @@
           <%= link_to '詳細', video_path(like_video.id) ,class: "btn btn-primary btn-sm w-25" %>
           <% if current_user.try(:id) == like_video.user_id %>
             <%= link_to "編集", edit_video_path(like_video.id), method: :get, class: "btn btn-success btn-sm w-25" %>
-            <%= link_to '削除', video_path(like_video.id), method: :delete,data: { confirm: '本当に削除していいですか？'}, class: "btn btn-danger btn-sm w-25" %>
+            <%= link_to video_path(like_video.id), method: :delete,data: { confirm: '本当に削除していいですか？'}, class: "btn btn-danger btn-sm w-25" do %>
+              <i class="fas fa-trash-alt"> 削除</i>
+            <% end %>
           <% end %>
         </div>
       </div>
