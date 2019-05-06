@@ -354,7 +354,18 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   div.card-body.tag_box a:nth-child(n+15) {
     display: none;
   }
+  // ヘッダーボタンのアクティブ時のデザイン
   header a.active {
     border-bottom: 4px solid #007bff;
     padding-bottom: 3px;
   }
+  // ユーザー情報ボタンのデザイン
+  .user_info_btn a.btn-outline-primary {
+    font-weight: 600;
+}
+  .user_info_btn a.btn-outline-primary:hover {
+    color: #007bff;
+    background-color: #fff;
+    border-color: #007bff;
+    font-weight: 600;
+}

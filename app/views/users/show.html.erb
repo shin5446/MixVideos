@@ -5,7 +5,7 @@
         <%=render 'user_info' %>
         <div class="col-9">
             <div class="card mb-3" style="border: none">
-              <div class="row bg-light" style="text-align: center">
+              <div class="row bg-light user_info_btn" style="text-align: center">
                 <div class="card-body col-3">
                   <%= active_link_to '投稿した動画', user_path(type: "post"), class: "btn btn-outline-primary btn-sm btn-block", active: :exact, active_disable: true %>
                 </div>
