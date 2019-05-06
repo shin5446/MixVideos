@@ -46,7 +46,11 @@
   </div>
 <% end %>
 <br>
-<p class="float-right"><%= link_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除しますか？" }, method: :delete, style: "color: red" %></p>
+<div class="float-right">
+  <%= link_to registration_path(resource_name), data: { confirm: "本当に削除しますか？" }, method: :delete, style: "color: red" do %>
+  <i class="fas fa-user-minus"> アカウントを削除する</i>
+  <% end %>
+</div>
 
 <div class="mx-auto" style="width: 350px; text-align: center">
   <%= link_to '戻る', :back, class: "btn btn-outline-dark btn-sm w-50 mt-2" %>
