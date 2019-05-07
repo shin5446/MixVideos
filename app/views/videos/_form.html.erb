@@ -11,31 +11,29 @@
       </div>
     <% end %>
 
-  <div class="bg-light">
-    <div class="px-2 py-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <%= form.label :動画のURL %>
-                <%= form.text_field :url, class: "form-control my-2" %>
-                <%= form.label :タイトル %>
-                <%= form.text_field :title, class: "form-control my-2" %>
-                <%= form.label :動画の説明 %>
-                <%= form.text_area :content, class: "form-control my-2", rows: 5 %>
-              </div>
+  <div class="px-2 py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <%= form.label :動画のURL %>
+              <%= form.text_field :url, class: "form-control my-2" %>
+              <%= form.label :タイトル %>
+              <%= form.text_field :title, class: "form-control my-2" %>
+              <%= form.label :動画の説明 %>
+              <%= form.text_area :content, class: "form-control my-2", rows: 5 %>
             </div>
           </div>
-          <div class="col-6">
-            <div class="card h-100">
-              <div class="card-body position-relative">
-                <%= form.label :ジャンル %><br>
-                <%= form.collection_check_boxes :genre_ids, Genre.all, :id, :name, include_hidden: false %><br>
-                <%= form.label :タグ %>
-                <%= form.text_field :tag_list, value: @video.tag_list.join(','), id: "video-tags" %>
-                <%= form.submit nil, class: "video-submit-btn btn btn-primary mb-3 position-absolute fixed-bottom w-50" %>
-              </div>
+        </div>
+        <div class="col-6">
+          <div class="card h-100">
+            <div class="card-body position-relative">
+              <%= form.label :ジャンル %><br>
+              <%= form.collection_check_boxes :genre_ids, Genre.all, :id, :name, include_hidden: false %><br>
+              <%= form.label :タグ %>
+              <%= form.text_field :tag_list, value: @video.tag_list.join(','), id: "video-tags" %>
+              <%= form.submit nil, class: "video-submit-btn btn btn-primary mb-3 position-absolute fixed-bottom w-50" %>
             </div>
           </div>
         </div>
