@@ -1,8 +1,8 @@
-<div class="col-3">
+<div class="col-lg-3 col-md-12 col-sx-12 col-sm-12">
     <div class="card mb-3">
       <i class="mt-2" style="text-align: center"><%= @user.icon.url.present? ? image_tag(@user.icon.url(:midium)) : image_tag('default_icon.jpg', size: '200x200', class: "img-responsive")%></i>
       <div class="card-body">
-        <h3><%= @user.name %></h3>
+        <h3 style="text-align: center"><%= @user.name %></h3>
         <table>
           <tr>
             <td>投稿 </td>
