@@ -73,7 +73,9 @@
           <div class="card mb-3">
             <div class="row">
               <div class="card-body col-12 col-sm-12 col-md-12 col-lg-6">
-                <iframe width="350" height="200" src=<%= embed_url(video) %> allowfullscreen></iframe>
+                <div class="video-wrap">
+                  <iframe width="350" height="200" src=<%= embed_url(video) %> allowfullscreen></iframe>
+                </div>
                 <p><%= video.title %></p><hr>
                 <p>投稿者: <i class = "circle"><%= video.user.icon.url.present? ? image_tag(video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= video.user.name %></p>
                 <span><i class="far fa-heart"></i> <%= video.likes_count %> <i class="fas fa-comment comment"></i> <%= video.comments.count %></span>

@@ -5,16 +5,16 @@
         <%=render 'user_info' %>
         <div class="col-lg-9 col-md-12 col-sm-12">
             <div class="row user_info_btn" style="text-align: center">
-              <div class="card-body col-lg-3 col-md-3 col-sm-3">
+              <div class="card-body col-6 col-lg-3 col-md-3 col-sm-3">
                 <%= active_link_to '投稿した動画', user_path(type: "post"), class: "btn btn-outline-primary btn-sm btn-block", active: :exact, active_disable: true %>
               </div>
-              <div class="card-body col-lg-3 col-md-3 col-sm-3">
+              <div class="card-body col-6 col-lg-3 col-md-3 col-sm-3">
                 <%= active_link_to 'お気に入り動画', user_path(type: "like"), class: "btn btn-outline-primary btn-sm btn-block", active: :exact, active_disable: true %>
               </div>
-              <div class="card-body col-lg-3 col-md-3 col-sm-3">
+              <div class="card-body col-6 col-lg-3 col-md-3 col-sm-3">
                 <%= active_link_to 'フォロー', user_path(type: "following"), class: "btn btn-outline-primary btn-sm btn-block", active: :exact, active_disable: true %>
               </div>
-              <div class="card-body col-lg-3 col-md-3 col-sm-3">
+              <div class="card-body col-6 col-lg-3 col-md-3 col-sm-3">
                 <%= active_link_to 'フォロワー', user_path(type: "followers"), class: "btn btn-outline-primary btn-sm btn-block", active: :exact, active_disable: true %>
               </div>
             </div>
