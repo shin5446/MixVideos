@@ -14,7 +14,7 @@
   <div class="px-2 py-3">
     <div class="container">
       <div class="row">
-        <div class="col-6">
+        <div class="col-lg-6 col-md-12 col-sx-12 col-sm-12">
           <div class="card h-100">
             <div class="card-body">
               <%= form.label :動画のURL %>
@@ -26,13 +26,13 @@
             </div>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-lg-6 col-md-12 col-sx-12 col-sm-12">
           <div class="card h-100">
             <div class="card-body position-relative">
               <%= form.label :ジャンル %><br>
               <%= form.collection_check_boxes :genre_ids, Genre.all, :id, :name, include_hidden: false %><br>
               <%= form.label :タグ %>
-              <%= form.text_field :tag_list, value: @video.tag_list.join(','), id: "video-tags" %>
+              <%= form.text_field :tag_list, value: @video.tag_list.join(','), id: "video-tags" %><br>
               <%= form.submit nil, class: "video-submit-btn btn btn-primary mb-3 position-absolute fixed-bottom w-50" %>
             </div>
           </div>
