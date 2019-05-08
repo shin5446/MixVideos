@@ -154,26 +154,6 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 	border-radius: 50px;
 }
 
-.box{
-  position: relative;
-}
-.box .btn-primary {
-  position: absolute;
-  bottom: 10px;
-  left: 0px;
-
-}
-.box .btn-success {
-  position: absolute;
-  bottom: 10px;
-  left: 125px;
-}
-.box .btn-danger {
-  position: absolute;
-  bottom: 10px;
-  left: 250px;
-}
-
 // 検索フォーム
 .searchbar{
   margin-bottom: auto;
@@ -389,4 +369,8 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 .btn-outline-dark{
   background-color: #fff;
+}
+
+.nav_btn ul li{
+  display: inline;
 }
