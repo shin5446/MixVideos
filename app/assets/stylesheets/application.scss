@@ -37,6 +37,18 @@ a:hover {
   text-decoration: none;
 }
 
+@media (min-width: 576px) {
+  .container {
+    max-width: 767px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
 // サインインフォーム
 #logreg-forms{
   width:412px;
