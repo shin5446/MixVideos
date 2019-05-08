@@ -18,7 +18,7 @@
 </div>
 <div class="px-2 py-3">
   <div class="row">
-    <div class="col-md-3 col-sx-12" style="text-align: center">
+    <div class="col-lg-3 col-md-12 col-sx-12 col-sm-12" style="text-align: center">
       <%= link_to new_video_path, class: "btn btn-primary" do %>
       <i class="fa fa-plus"> 新しく動画を投稿する</i>
       <% end %>
@@ -29,7 +29,7 @@
 <div class="px-2 py-3">
   <div class="container">
     <div class="row">
-      <div class="col-md-3 col-sx-12">
+      <div class="col-lg-3 col-md-12 col-sx-12 col-sm-12">
         <% if current_user %>
           <div class="card mb-3" style="text-align: center">
             <div class="card-header">
@@ -68,18 +68,18 @@
         </div>
       </div>
 
-      <div class="col-md-9 col-sx-12">
+      <div class="col-lg-9 col-md-12 col-sx-12 col-sm-12">
         <% @videos.each do |video| %>
           <div class="card mb-3">
             <div class="row">
-              <div class="card-body col-md-6 col-sx-12">
+              <div class="card-body col-lg-6 col-md-12 col-sx-12 col-sm-12">
                 <iframe width="350" height="200" src=<%= embed_url(video) %> allowfullscreen></iframe>
                 <p><%= video.title %></p><hr>
                 <p>投稿者: <i class = "circle"><%= video.user.icon.url.present? ? image_tag(video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= video.user.name %></p>
                 <span><i class="far fa-heart"></i> <%= video.likes_count %> <i class="fas fa-comment comment"></i> <%= video.comments.count %></span>
                 <span class="float-right"><%= "#{video.created_at}に投稿" %></span>
               </div>
-              <div class="card-body col-md-6 col-sx-12">
+              <div class="card-body col-lg-6 col-md-12 col-sx-12 col-sm-12">
                 <p>ジャンル:
                   <% video.genres.each do |genre| %>
                     <%= link_to genre.name, videos_path(genre_id: genre.id), class: "btn btn-sm my-1 genre_btn" %>
