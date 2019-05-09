@@ -311,7 +311,7 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
    .follow_btn{
     position: absolute;
     bottom: 2px;
-    left: 40%;
+    left: 65%;
 
   }
 
@@ -416,11 +416,27 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 // ユーザー一覧のデザイン
-.user_list_container a{
+.user_list_box a{
   color:  black;
 }
-.user_list_container .card:hover{
+.user_list_box .card:hover{
   background-color: #f0f0f0;
   transition: 0.3s ease-out;
   opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+  .user_list_box .user_list_content .count_table{
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .user_list_box .user_list_content b{
+    margin-left: 30%;
+  }
+}
+@media (max-width: 600px) {
+  .user_list_box .user_list_content p{
+    margin-left: 30%;
+  }
 }
