@@ -1,26 +1,22 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
       <%= render "devise/shared/error_messages", resource: resource %>
-      <div id="logreg-forms">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign up</h1>
-          <div class="social-login">
-            <%= link_to user_google_omniauth_authorize_path,class: "btn google-btn social-btn" do %>
-              <i class="fab fa-google"> GOOGLEでサインアップ</i>
-            <% end %>
-          </div>
-          <p style="text-align:center"> OR  </p>
-          <%= f.text_field :name, autofocus: true, type:"text", class: "form-control", placeholder: "Full name", required: "" %>
-          <%= f.email_field :email, autofocus: true, type:"text", class: "form-control", placeholder: "Email address", required: "" %>
-          <%= f.password_field :password, autofocus: true, class: "form-control", placeholder: "Password", required: "" %>
-          <%= f.password_field :password_confirmation, autofocus: true, class: "form-control", placeholder: "Repeat Password", required: "" %>
-          <br>
-          <%= f.submit "サインアップ", class: "btn btn-primary btn-block fa-sign-in-alt" %>
+      <div style="width: auto">
+        <div id="logreg-forms">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign up</h1>
+            <div class="social-login">
+              <%= link_to user_google_omniauth_authorize_path,class: "btn google-btn social-btn" do %>
+                <i class="fab fa-google"> GOOGLEでサインアップ</i>
+              <% end %>
+            </div>
+            <p style="text-align:center"> OR  </p>
+            <%= f.text_field :name, autofocus: true, type:"text", class: "form-control", placeholder: "Full name", required: "" %>
+            <%= f.email_field :email, autofocus: true, type:"text", class: "form-control", placeholder: "Email address", required: "" %>
+            <%= f.password_field :password, autofocus: true, class: "form-control", placeholder: "Password", required: "" %>
+            <%= f.password_field :password_confirmation, autofocus: true, class: "form-control", placeholder: "Repeat Password", required: "" %>
+            <br>
+            <%= f.submit "サインアップ", class: "btn btn-primary btn-block fa-sign-in-alt" %>
 
-        <% end %>
-        <%= link_to "アカウントをお持ちの方はこちら", new_user_session_path, class: "btn btn-block" %>
+          <% end %>
+          <%= link_to "アカウントをお持ちの方はこちら", new_user_session_path, class: "btn btn-block" %>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
