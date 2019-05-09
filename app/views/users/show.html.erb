@@ -9,7 +9,7 @@
                 <%= active_link_to '投稿した動画', user_path(type: "post"), class: "btn btn-outline-primary btn-sm btn-block", active: :exact, active_disable: true %>
               </div>
               <div class="card-body col-6 col-sm-3 col-md-3 col-lg-3">
-                <%= active_link_to 'お気に入り動画', user_path(type: "like"), class: "btn btn-outline-primary btn-sm btn-block", active: :exact, active_disable: true %>
+                <%= active_link_to 'いいねした動画', user_path(type: "like"), class: "btn btn-outline-primary btn-sm btn-block", active: :exact, active_disable: true %>
               </div>
               <div class="card-body col-6 col-sm-3 col-md-3 col-lg-3">
                 <%= active_link_to 'フォロー', user_path(type: "following"), class: "btn btn-outline-primary btn-sm btn-block", active: :exact, active_disable: true %>
@@ -19,9 +19,9 @@
               </div>
             </div>
             <% if  @type == 'post' || @type == 'like' %>
-              <% if @post_videos.present? %>
+              <% if @type == 'post' && @post_videos.present? %>
                   <%= render 'post_video' %>
-              <% elsif @like_videos.present? %>
+              <% elsif @type == 'like' && @like_videos.present? %>
                   <%= render 'like_video' %>
               <% else %>
                 <h2 style="text-align: center">表示出来る動画がありません</h2>
