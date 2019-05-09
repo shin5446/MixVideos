@@ -414,3 +414,13 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 .nav_btn ul li{
   display: inline;
 }
+
+// ユーザー一覧のデザイン
+.user_list_container a{
+  color:  black;
+}
+.user_list_container .card:hover{
+  background-color: #f0f0f0;
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+}
