@@ -2,16 +2,17 @@
   <div class="py-3">
     <div class="container">
       <div class="row">
-        <div class="col-lg-3 col-md-12 col-sm-12">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-3">
           <div class="card mb-3">
             <i class="mt-2" style="text-align: center"><%= current_user.icon.url.present? ? image_tag(current_user.icon.url(:midium)) : image_tag('default_icon.jpg', size: "200x200") %></i>
             <div class="card-body">
               <h3 style="text-align: center"><%= current_user.name %></h3>
-              <table>
-                <tr>
+              <table class="mx-auto" style="width: 200px; text-align: center">
+                <tr style="text-align: center">
                   <td>投稿 </td>
                   <td> フォロー</td>
                   <td>フォロワー</td>
+                </tr>
                 <tr>
                   <td><%= current_user.videos.count %></td>
                   <td><%= current_user.following.count %></td>
@@ -26,7 +27,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-9 col-md-12 col-sm-12">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-9">
           <% @users.each do |user| %>
             <% if current_user.id != user.id %>
               <div class="card mb-3" style="height: 150px">
@@ -42,6 +43,7 @@
                       <td>投稿 </td>
                       <td> フォロー</td>
                       <td>フォロワー</td>
+                    </tr>
                     <tr style="text-align: center">
                       <td><%= user.videos.count %></td>
                       <td><%= user.following.count %></td>
