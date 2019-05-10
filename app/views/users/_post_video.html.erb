@@ -20,17 +20,26 @@
         <p>タグ:
           <%= render 'videos/tag_list', tag_list: post_video.tag_list %>
         </p>
-        <%= link_to video_path(post_video.id) ,class: "btn btn-primary btn-sm w-25" do %>
-          <i class="fas fa-arrow-circle-right"></i> 詳細</i>
-        <% end %>
-        <% if current_user.try(:id) == post_video.user_id %>
-          <%= link_to edit_video_path(post_video.id), method: :get, class: "btn btn-success btn-sm w-25" do %>
-            <i class="fas fa-edit"> 編集</i>
-          <% end %>
-          <%= link_to video_path(post_video.id), method: :delete,data: { confirm: '本当に削除していいですか？'}, class: "btn btn-danger btn-sm w-25" do %>
-            <i class="fas fa-trash-alt"> 削除</i>
-          <% end %>
-        <% end %>
+        <div class="nav_btn d-flex align-items-end">
+          <ul>
+            <li>
+              <%= link_to video_path(post_video.id) ,class: "btn btn-primary btn-sm" do %>
+                <i class="fas fa-arrow-circle-right"></i> 詳細</i>
+              <% end %>
+            </li>
+            <% if current_user.try(:id) == post_video.user_id %>
+              <li>
+                <%= link_to edit_video_path(post_video.id), class: "btn btn-success btn-sm" do %>
+                  <i class="fas fa-edit"> 編集</i>
+                <% end %>
+              <li>
+                <%= link_to video_path(post_video.id), method: :delete,data: { confirm: '本当に削除していいですか？'}, class: "btn btn-danger btn-sm" do %>
+                  <i class="fas fa-trash-alt"> 削除</i>
+                <% end %>
+              </li>
+              <% end %>
+          </ul>
+        </div>
       </div>
     <% end %>
   <% end %>
