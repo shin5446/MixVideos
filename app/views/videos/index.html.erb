@@ -51,7 +51,7 @@
           <div class="card-body">
             <h5>ジャンルから探す</h5>
             <% @genres.each do |genre| %>
-              <%= link_to genre.name, videos_path(genre_id: genre.id), class: "btn btn-sm my-1 genre_btn" %>
+              <%= link_to genre.name, videos_path(genre_id: genre.id), class: "badge badge-light py-1 px-2 category-badge" %>
             <% end %>
           </div>
         </div>
@@ -80,7 +80,7 @@
               <span class="float-right"><%= "#{video.created_at}に投稿" %></span>
               <p>ジャンル:
                 <% video.genres.each do |genre| %>
-                  <%= link_to genre.name, videos_path(genre_id: genre.id), class: "btn btn-sm my-1 genre_btn" %>
+                  <%= link_to genre.name, videos_path(genre_id: genre.id), class: "badge badge-light py-1 px-2 category-badge" %>
                 <% end %>
               </p>
               <p>タグ:
