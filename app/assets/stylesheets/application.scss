@@ -440,3 +440,11 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     margin-left: 30%;
   }
 }
+
+// カードのmarginの調整
+@media (min-width: 992px){
+.col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 47%;
+}
+}
