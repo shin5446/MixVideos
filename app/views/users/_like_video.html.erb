@@ -1,39 +1,37 @@
-<% unless @like_videos.first == nil %>
-  <% @like_videos.each do |like_video| %>
-    <div class="card mb-3">
-      <div class="row">
-        <div class="card-body col-12 col-sm-12 col-md-12 col-lg-6">
-          <div class="video-wrap">
-            <iframe width="350" height="200" src=<%= embed_url(like_video) %> allowfullscreen></iframe><hr>
-          </div>
-          <p><%= like_video.title %></p>
-          <p>投稿者: <i class = "circle"><%= like_video.user.icon.url.present? ? image_tag(like_video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= like_video.user.name %></p>
-          <span><i class="far fa-heart"></i> <%= like_video.likes_count %></span>
-          <span><i class="fas fa-comment comment"></i> <%= like_video.comments.count %></span>
-          <span class="float-right"><%= "#{like_video.created_at}に投稿" %></span>
+<div class="row user_video">
+  <% unless @like_videos.first == nil %>
+    <% @like_videos.each do |post_video| %>
+      <div class="card mb-3 pt-3 col-12 col-sm-12 col-md-12 col-lg-6">
+        <div class="video-wrap">
+          <iframe width="350" height="200" src=<%= embed_url(post_video) %> allowfullscreen></iframe><hr>
         </div>
-        <div class="card-body col-12 col-sm-12 col-md-12 col-lg-6 box">
-          <p>ジャンル:
-            <% like_video.genres.each do |genre| %>
-              <%= link_to genre.name, videos_path(genre_id: genre.id), class: "btn btn-sm my-1 genre_btn" %>
-            <% end %>
-          </p>
-          <p>タグ:
-            <%= render 'videos/tag_list', tag_list: like_video.tag_list %>
-          </p>
-          <%= link_to video_path(like_video.id), class: "btn btn-primary btn-sm w-25" do %>
-             <i class="fas fa-arrow-circle-right"></i> 詳細</i>
+        <p><%= post_video.title %></p>
+        <p>投稿者: <i class = "circle"><%= post_video.user.icon.url.present? ? image_tag(post_video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= post_video.user.name %></p>
+        <span><i class="far fa-heart"></i> <%= post_video.likes_count %></span>
+        <span><i class="fas fa-comment comment"></i> <%= post_video.comments.count %></span>
+        <span class="float-right">
+          <%= "#{post_video.created_at}に投稿" %>
+        </span>
+        <p>ジャンル:
+          <% post_video.genres.each do |genre| %>
+            <%= link_to genre.name, videos_path(genre_id: genre.id), class: "btn btn-sm my-1 genre_btn" %>
           <% end %>
-          <% if current_user.try(:id) == like_video.user_id %>
-            <%= link_to edit_video_path(like_video.id), method: :get, class: "btn btn-success btn-sm w-25" do %>
-              <i class="fas fa-edit"> 編集</i>
-            <% end %>
-            <%= link_to video_path(like_video.id), method: :delete,data: { confirm: '本当に削除していいですか？'}, class: "btn btn-danger btn-sm w-25" do %>
-              <i class="fas fa-trash-alt"> 削除</i>
-            <% end %>
+        </p>
+        <p>タグ:
+          <%= render 'videos/tag_list', tag_list: post_video.tag_list %>
+        </p>
+        <%= link_to video_path(post_video.id) ,class: "btn btn-primary btn-sm w-25" do %>
+          <i class="fas fa-arrow-circle-right"></i> 詳細</i>
+        <% end %>
+        <% if current_user.try(:id) == post_video.user_id %>
+          <%= link_to edit_video_path(post_video.id), method: :get, class: "btn btn-success btn-sm w-25" do %>
+            <i class="fas fa-edit"> 編集</i>
           <% end %>
-        </div>
+          <%= link_to video_path(post_video.id), method: :delete,data: { confirm: '本当に削除していいですか？'}, class: "btn btn-danger btn-sm w-25" do %>
+            <i class="fas fa-trash-alt"> 削除</i>
+          <% end %>
+        <% end %>
       </div>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

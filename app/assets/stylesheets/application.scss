@@ -443,8 +443,16 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 
 // カードのmarginの調整
 @media (min-width: 992px){
-.col-lg-6 {
+.index_video .col-lg-6 {
     flex: 0 0 50%;
     max-width: 47%;
 }
 }
+@media (min-width: 992px){
+.user_video .col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 49%;
+}
+}
+
+.user_video .card:nth-child(odd){margin-right: 18px }
