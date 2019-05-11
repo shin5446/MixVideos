@@ -37,5 +37,4 @@ RSpec.describe Video, type: :model do
     video = user.videos.build(title: 'テスト', content: 'テスト', url: 'gdsfgは英fエjaおいjファhfはがえfklっじゃんふぁkじ')
     expect(video).not_to be_valid
   end
-
 end
