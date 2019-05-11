@@ -12,6 +12,14 @@
     </div>
   </div>
 <% end %><br>
+<%= search_form_for @q do |f| %>
+ <div class="container h-100 search_box2">
+    <div class="row h-100 justify-content-center align-items-center">
+      <%= f.search_field :title_or_content_or_user_name_cont, required: true ,placeholder: '検索するテキストを入力...', class: "search_active2"%>
+      <%= f.submit "検索",class: "btn btn-primary search_btn2" %>
+    </div>
+  </div>
+<% end %><br>
 
 <div style="text-align: center" class="sort_btn">
   <%= active_link_to "新着順", videos_path(sort_created_at: true), class: "btn btn-outline-primary btn-sm w-25", active: :exact, active_disable: true %>

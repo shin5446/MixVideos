@@ -495,11 +495,28 @@ right: 10px !important;
 }
 @media (max-width: 500px) {
   .search_active{
-    width: 100%;
+    width: 200px;
   }
 }
-@media (max-width: 500px) {
-  .search input::placeholder{
-    color: white;
+
+// 仮の検索フォーム
+.search_active2{
+  width: 400px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 0.25rem;
+  border:0;
+  outline: 0;
+  box-shadow: 0;
   }
-}
+  .search_btn2{
+    font-weight: 600;
+    height: 42px;
+  }
+  @media (max-width: 500px) {
+    .search_active2{
+      width: 200px;
+    }
+  }
