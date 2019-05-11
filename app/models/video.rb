@@ -30,6 +30,10 @@ class Video < ApplicationRecord
 
   # 不正なURLを弾くために独自のバリデーションを実装
   def video_exist?
+    if %r{https?://?youtu.be}.match?(url)
+      url.gsub!("https://youtu.be/", "https://www.youtube.com/watch?v=")
+    end
+
     if %r{\Ahttps?://(?:www\.)?youtube.com/watch\?(?=.*v=\w+)(?:\S+)?\z}.match?(url)
       uri = URI.parse(url)
       request = Net::HTTP::Head.new(uri)
