@@ -47,7 +47,7 @@ $(function(){
 $(function(){
   setTimeout("$('.time-limit').fadeOut('slow')", 2500)
 })
-
+// 検索フォーム
 $(function(){
   $('.search_btn').on('click',function(){
   $(".search_open, .search_close").toggleClass("search_open search_close");
