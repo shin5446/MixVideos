@@ -1,12 +1,13 @@
 <br>
 <%= search_form_for @q do |f| %>
- <div class="container h-100">
-    <div class="d-flex justify-content-center h-100">
-      <div class="searchbar">
-          <%= f.search_field :title_or_content_or_user_name_cont, required: true ,placeholder: '検索するテキストを入力...', class: "search_input"%>
-          <%= button_tag :type => "submit", :id =>"button", :class =>"btn mt-1 mr-1 mb-2" do %>
-           <i class="fa fa-search"></i>
-          <% end %>
+ <div class="container h-100 search_box">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="search_container">
+        <div class="search">
+            <%= f.search_field :title_or_content_or_user_name_cont, required: true ,placeholder: '検索するテキストを入力...' %>
+            <%= f.submit "検索",class: "go_btn" %>
+            <div class="search_btn search_open"></div>
+        </div>
       </div>
     </div>
   </div>
