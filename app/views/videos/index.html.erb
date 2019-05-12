@@ -103,19 +103,19 @@
               </p>
               <br>
               <div class="nav_btn">
-                <ul>
+                <ul class="float-right">
                   <li>
-                    <%= link_to video_path(video.id) ,class: "btn btn-primary btn-sm" do %>
+                    <%= link_to video_path(video.id) ,class: "btn text-primary btn-sm " do %>
                       <i class="fas fa-arrow-circle-right"></i> 詳細</i>
                     <% end %>
                   </li>
                   <% if current_user.try(:id) == video.user_id %>
                     <li>
-                      <%= link_to edit_video_path(video), class: "btn btn-success btn-sm" do %>
+                      <%= link_to edit_video_path(video), class: "btn text-success btn-sm" do %>
                         <i class="fas fa-edit"> 編集</i>
                       <% end %>
                     <li>
-                      <%= link_to video_path(video.id), method: :delete,data: { confirm: '本当に削除していいですか？'}, class: "btn btn-danger btn-sm" do %>
+                      <%= link_to video_path(video.id), method: :delete,data: { confirm: '本当に削除していいですか？'}, class: "btn text-danger btn-sm" do %>
                         <i class="fas fa-trash-alt"> 削除</i>
                       <% end %>
                     </li>
