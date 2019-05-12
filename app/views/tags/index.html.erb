@@ -4,5 +4,7 @@
     <%= link_to "#{tag.name}(#{tag.taggings_count})", videos_path(tag_name: tag.name), class: "tag_btn btn btn-light btn-sm my-1" %>
   <% end %> <br>
   <div style="text-align: center">
-    <%= link_to "戻る", :back, class: "btn btn-outline-dark btn-sm my-2 w-25" %>
+    <%= link_to :back, class: "btn btn-outline-dark btn-sm back_btn my-3" do %>
+     <i class="fas fa-undo"> 戻る</i>
+  <% end %>
   </div>

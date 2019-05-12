@@ -22,7 +22,7 @@
               <hr>
               <b><%= current_user.introduction %></b><br>
               <%if current_user.try(:id) == current_user.id %>
-                <%= link_to "編集", edit_user_registration_path, class: "btn btn-success btn-sm float-right" %>
+                <%= link_to "編集", edit_user_registration_path, class: "btn text-success btn-sm float-right" %>
               <% end %>
             </div>
           </div>
@@ -64,6 +64,8 @@
   </div>
 </div>
 
-<div class="mx-auto" style="width: 350px; text-align: center">
-  <%= link_to '戻る', :back, class: "btn btn-outline-dark btn-sm w-50 mt-3" %>
+<div style="text-align: center">
+  <%= link_to :back, class: "btn btn-outline-dark btn-sm w-50 mt-3" do %>
+   <i class="fas fa-undo"> 戻る</i>
+  <% end %>
 </div>

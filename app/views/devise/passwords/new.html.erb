@@ -10,6 +10,8 @@
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= f.email_field :email, autofocus: true, type:"text", class: "form-control", placeholder: "Email address", required: "" %><br>
     <%= f.submit "パスワード再設定メールを送る", class: "btn btn-success btn-block fa-sign-in-alt" %><br>
-    <%= link_to "戻る", :back, class: "btn btn-dark btn-block social-btn" %>
+    <%= link_to :back, class: "btn btn-dark btn-block social-btn" do %>
+     <i class="fas fa-undo"> 戻る</i>
+    <% end %>
   <% end %>
 </div>
