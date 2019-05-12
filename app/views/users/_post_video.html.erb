@@ -5,19 +5,27 @@
         <div class="video-wrap">
           <iframe width="350" height="200" src=<%= embed_url(post_video) %> allowfullscreen></iframe><hr>
         </div>
-        <p><%= post_video.title %></p>
+        <p><%= post_video.title %></p><hr>
         <p>投稿者: <i class = "circle"><%= post_video.user.icon.url.present? ? image_tag(post_video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= post_video.user.name %></p>
-        <span><i class="far fa-heart"></i> <%= post_video.likes_count %></span>
-        <span><i class="fas fa-comment comment"></i> <%= post_video.comments.count %></span>
-        <span class="float-right">
-          <%= "#{post_video.created_at}に投稿" %>
-        </span>
-        <p>ジャンル:
+        <div class="nav_btn">
+          <ul style="padding-inline-start: 0px">
+            <li>
+              <i class="far fa-heart"></i> <%= post_video.likes_count %>
+            </li>
+            <li>
+              <i class="fas fa-comment comment"></i> <%= post_video.comments.count %>
+            </li>
+            <li class="float-right">
+              <%= "#{post_video.created_at}に投稿"%></span>
+            </li>
+          </ul>
+        </div>
+        <p>
           <% post_video.genres.each do |genre| %>
             <%= link_to genre.name, videos_path(genre_id: genre.id), class: "badge badge-light py-1 px-2 category-badge" %>
           <% end %>
         </p>
-        <p>タグ:
+        <p>
           <%= render 'videos/tag_list', tag_list: post_video.tag_list %>
         </p>
         <div class="nav_btn">
