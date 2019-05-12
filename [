@@ -1,9 +1,0 @@
-[user]
-	email = 5446shin@gmail.com
-	name = shin
-
-[alias]
-    cm = commit
-    cmm = commit -m
-    branch = b
-    checkout = co
