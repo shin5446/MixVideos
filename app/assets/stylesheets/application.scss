@@ -525,6 +525,10 @@ right: 10px !important;
     .search_active2{
       width: 200px;
     }
+    header a.active {
+      border-bottom: 0px;
+      padding-bottom: 3px;
+    }
   }
   // ハンバーガーメニュー
   .navbar-toggler {
