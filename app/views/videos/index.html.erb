@@ -50,7 +50,7 @@
             <div class="card-header">
             <i class = "circle"><%= current_user.icon.url.present? ? image_tag(current_user.icon.url) : image_tag('default_icon.jpg') %></i> <%= current_user.name %>
             </div>
-            <table>
+            <table class="mx-auto" style="width: 200px; text-align: center">
               <tr>
                 <td>フォロー数</td>
                 <td>フォロワー数</td>
