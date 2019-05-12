@@ -2,7 +2,7 @@
 
   <p id="notice"><%= notice %></p>
   <div class="mx-auto" style="width: 500px; text-align: center">
-  <%= link_to '戻る', videos_path, class: "btn btn-outline-dark btn-sm w-25" %>
+  <%= link_to '戻る', :back, class: "btn btn-outline-dark btn-sm w-25" %>
   <%if current_user.try(:id) == @video.user_id %>
     <%= link_to edit_video_path(@video), class: "btn btn-success btn-sm w-25" do %>
       <i class="fas fa-edit"> 編集</i>
