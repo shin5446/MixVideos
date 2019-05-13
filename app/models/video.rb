@@ -38,7 +38,9 @@ class Video < ApplicationRecord
     if %r{\Ahttps?://(?:www\.)?youtube.com/watch\?(?=.*v=\w+)(?:\S+)?\z}.match?(url) ||
        %r{https?://?www.nicovideo.jp/watch}.match?(url) ||
        %r{https?://?www.dailymotion.com/video}.match?(url) ||
-       %r{https?://?www.pandora.tv/view}.match?(url)
+       %r{https?://?www.pandora.tv/view}.match?(url) ||
+       %r{https?://?vimeo.com}.match?(url) ||
+       %r{https?://?rutube.ru/video}.match?(url)
 
       uri = URI.parse(url)
       request = Net::HTTP::Head.new(uri)

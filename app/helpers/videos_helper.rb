@@ -9,6 +9,10 @@ module VideosHelper
       video.url.gsub(%r{https?://?www.dailymotion.com/video}) { "https://www.dailymotion.com/embed/video#{Regexp.last_match(1)}" }
     elsif video.url.include?("pandora")
       video.url.gsub(%r{(?=#)(?:.*)}) { "embed" }
+    elsif video.url.include?("vimeo")
+      video.url.gsub(%r{https?://?vimeo.com}) { "https://player.vimeo.com/video#{Regexp.last_match(1)}" }
+    elsif video.url.include?("rutube")
+      video.url.gsub(%r{https?://?rutube.ru/video}) { "https://rutube.ru/play/embed/#{Regexp.last_match(1)}" }
     end
   end
 end
