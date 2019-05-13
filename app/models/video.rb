@@ -33,14 +33,14 @@ class Video < ApplicationRecord
     url.gsub!('https://youtu.be/', 'https://www.youtube.com/watch?v=') if %r{https?://?youtu.be}.match?(url)
     url.gsub!(/https?:\/\/nico.ms/, 'https://www.nicovideo.jp/watch') if %r{https?://?nico.ms}.match?(url)
     url.gsub!('https://dai.ly', 'https://www.dailymotion.com/video') if %r{https?://?dai.ly}.match?(url)
-    url.gsub!('https://dai.ly', 'https://www.dailymotion.com/video') if %r{https?://?dai.ly}.match?(url)
 
     if %r{\Ahttps?://(?:www\.)?youtube.com/watch\?(?=.*v=\w+)(?:\S+)?\z}.match?(url) ||
        %r{https?://?www.nicovideo.jp/watch}.match?(url) ||
        %r{https?://?www.dailymotion.com/video}.match?(url) ||
        %r{https?://?www.pandora.tv/view}.match?(url) ||
        %r{https?://?vimeo.com}.match?(url) ||
-       %r{https?://?rutube.ru/video}.match?(url)
+       %r{https?://?rutube.ru/video}.match?(url) ||
+       %r{https?://?v.youku.com/v_show}.match?(url)
 
       uri = URI.parse(url)
       request = Net::HTTP::Head.new(uri)

@@ -13,6 +13,9 @@ module VideosHelper
       video.url.gsub(%r{https?://?vimeo.com}) { "https://player.vimeo.com/video#{Regexp.last_match(1)}" }
     elsif video.url.include?("rutube")
       video.url.gsub(%r{https?://?rutube.ru/video}) { "https://rutube.ru/play/embed/#{Regexp.last_match(1)}" }
+    elsif video.url.include?("youku")
+      video.url.sub!(/(?=.html)(.*)/, '')
+      video.url.gsub(%r{https?://?v.youku.com/v_show/id_}) { "http://player.youku.com/embed/#{Regexp.last_match(1)}" }
     end
   end
 end
