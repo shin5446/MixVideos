@@ -6,7 +6,10 @@
           <iframe width="350" height="200" src=<%= embed_url(like_video) %> allowfullscreen></iframe><hr>
         </div>
         <p><%= like_video.title %></p><hr>
-        <p>投稿者: <i class = "circle"><%= like_video.user.icon.url.present? ? image_tag(like_video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= like_video.user.name %></p>
+        <p>
+          投稿者: <i class = "circle"><%= like_video.user.icon.url.present? ? image_tag(like_video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= like_video.user.name %>
+          <%= link_to like_video.service.name, videos_path(service_id: like_video.service.id), class: "badge badge-dark py-1 px-2 mt-3 category-badge float-right" %>
+        </p>
         <div class="nav_btn">
           <ul style="padding-inline-start: 0px">
             <li>
