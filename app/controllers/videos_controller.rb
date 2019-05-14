@@ -6,6 +6,7 @@ class VideosController < ApplicationController
 
   def index
     @genres = Genre.all
+    @services = Service.all
     @tags = Video.all_tags.order(taggings_count: :desc)
     @q = Video.ransack(params[:q])
     @videos = if params[:sort_like]
@@ -14,7 +15,7 @@ class VideosController < ApplicationController
                 Video.sort_created_at
               elsif params[:genre_id]
                 Video.sort_genre(params[:genre_id])
-              elsif params[:genre_id]
+              elsif params[:service_id]
                 Video.sort_service(params[:service_id])
               elsif params[:tag_name]
                 Video.tagged_with(params[:tag_name].to_s)
