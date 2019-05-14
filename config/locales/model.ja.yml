@@ -3,6 +3,7 @@ ja:
     models:
       video: "動画"
       user: "ユーザー"
+      service: "サービス"
     attributes:
       video:
         title: "タイトル"
@@ -18,3 +19,5 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+      service:
+        name: "サービス名"
