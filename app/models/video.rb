@@ -6,6 +6,7 @@ class Video < ApplicationRecord
   acts_as_taggable
 
   belongs_to :user
+  belongs_to :service
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
   has_many :video_genres, dependent: :destroy
