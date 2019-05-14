@@ -14,6 +14,8 @@ class VideosController < ApplicationController
                 Video.sort_created_at
               elsif params[:genre_id]
                 Video.sort_genre(params[:genre_id])
+              elsif params[:genre_id]
+                Video.sort_service(params[:service_id])
               elsif params[:tag_name]
                 Video.tagged_with(params[:tag_name].to_s)
               else
@@ -61,7 +63,7 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:title, :content, :url, :image, :image_cache, :user_id, :video_id, :tag_list, genre_ids: [])
+    params.require(:video).permit(:title, :content, :url, :image, :image_cache, :user_id, :video_id, :tag_list, :service_id, genre_ids: [])
   end
 
   def set_video

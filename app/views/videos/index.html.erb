@@ -90,7 +90,10 @@
                 <iframe width="350" height="200" src=<%= embed_url(video) %> allowfullscreen></iframe>
               </div>
               <p><%= video.title %></p><hr>
-              <p>投稿者: <i class = "circle"><%= video.user.icon.url.present? ? image_tag(video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= video.user.name %></p>
+              <p>
+                投稿者: <i class = "circle"><%= video.user.icon.url.present? ? image_tag(video.user.icon.url) : image_tag('default_icon.jpg') %></i> <%= video.user.name %>
+                <%= link_to video.service.name, videos_path(service_id: video.service.id), class: "badge badge-dark py-1 px-2 category-badge float-right mt-3" %>
+              </p>
               <div class="nav_btn">
                 <ul style="padding-inline-start: 0px">
                   <li>

@@ -18,12 +18,12 @@ Genre.create([
   {name: '旅'}
 ])
 Service.create([
-  {name: 'youtube'},
-  {name: 'nicovideo'},
-  {name: 'dailymotion'},
-  {name: 'pandora'},
-  {name: 'vimeo'},
-  {name: 'rutube'},
-  {name: 'youku'},
-  {name: 'metacafe'}
+  {name: 'Youtube'},
+  {name: 'ニコニコ動画'},
+  {name: 'Dailymotion'},
+  {name: 'Pandora'},
+  {name: 'Vimeo'},
+  {name: 'Rutube'},
+  {name: 'Youku'},
+  {name: 'Metacafe'}
 ])
