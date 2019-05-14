@@ -29,6 +29,8 @@
         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
           <div class="card h-100">
             <div class="card-body position-relative">
+              <%= form.label :サービス %><br>
+              <%= form.collection_radio_buttons :service_id, Service.all, :id, :name, include_hidden: false %><br>
               <%= form.label :ジャンル %><br>
               <%= form.collection_check_boxes :genre_ids, Genre.all, :id, :name, include_hidden: false %><br>
               <%= form.label :タグ %>

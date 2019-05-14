@@ -24,5 +24,6 @@ Service.create([
   {name: 'pandora'},
   {name: 'vimeo'},
   {name: 'rutube'},
-  {name: 'youku'}
+  {name: 'youku'},
+  {name: 'metacafe'}
 ])
