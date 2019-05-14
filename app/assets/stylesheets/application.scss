@@ -313,6 +313,29 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
       border: solid 1px ;
     }
   }
+   // サービス選択のラジオボタンのデザイン
+   input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    display: none;
+    & + label {
+      display: inline-block;
+      box-sizing: border-box;
+      color: gray;
+      border: solid 1px;
+      border-radius: 4px;
+      box-sizing: border-box;
+      background-color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+      margin-right: 4px;
+    }
+    &:checked + label {
+      color: gray;
+      background-color:#FFC8EF;
+      border: solid 1px ;
+    }
+  }
 
   // ジャンルのボタンのデザイン
   .genre_btn{
