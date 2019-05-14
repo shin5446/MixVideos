@@ -17,3 +17,12 @@ Genre.create([
   {name: 'フィットネス'},
   {name: '旅'}
 ])
+Service.create([
+  {name: 'youtube'},
+  {name: 'nicovideo'},
+  {name: 'dailymotion'},
+  {name: 'pandora'},
+  {name: 'vimeo'},
+  {name: 'rutube'},
+  {name: 'youku'}
+])
