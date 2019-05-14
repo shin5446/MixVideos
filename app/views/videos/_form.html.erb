@@ -17,19 +17,19 @@
         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
           <div class="card h-100">
             <div class="card-body">
-              <%= form.label :動画のURL %>
+              <%= form.label :動画のURL %>&emsp;<span class="badge badge-danger">必須</span>
               <%= form.text_field :url, class: "form-control my-2" %>
-              <%= form.label :タイトル %>
+              <%= form.label :タイトル %>&emsp;<span class="badge badge-danger">必須</span>
               <%= form.text_field :title, class: "form-control my-2" %>
-              <%= form.label :動画の説明 %>
-              <%= form.text_area :content, class: "form-control my-2", rows: 5 %>
+              <%= form.label :動画の説明 %>&emsp;<span class="badge badge-danger">必須</span>
+              <%= form.text_area :content, class: "form-control my-2", rows: 7 %>
             </div>
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
           <div class="card h-100">
             <div class="card-body position-relative">
-              <%= form.label :サービス %><br>
+              <%= form.label :サービス %>&emsp;<span class="badge badge-danger">必須</span><br>
               <%= form.collection_radio_buttons :service_id, Service.all, :id, :name, include_hidden: false %><br>
               <%= form.label :ジャンル %><br>
               <%= form.collection_check_boxes :genre_ids, Genre.all, :id, :name, include_hidden: false %><br>
