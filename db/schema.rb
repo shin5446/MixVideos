@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_20_080756) do
+ActiveRecord::Schema.define(version: 2019_05_14_123953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 2019_04_20_080756) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "video_id"
+    t.index ["video_id"], name: "index_services_on_video_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -120,6 +128,7 @@ ActiveRecord::Schema.define(version: 2019_04_20_080756) do
 
   add_foreign_key "comments", "users"
   add_foreign_key "comments", "videos"
+  add_foreign_key "services", "videos"
   add_foreign_key "video_genres", "genres"
   add_foreign_key "video_genres", "videos"
   add_foreign_key "videos", "users"
