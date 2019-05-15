@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   }
   resources :users, only: %i[show index]
 
+  # TOPページ
+  resources :toppages, only: %i[index]
+
   # 動画関連
   resources :videos do
-    # 動画に対するコメント関連
+  # 動画に対するコメント関連
     resources :comments
   end
 
