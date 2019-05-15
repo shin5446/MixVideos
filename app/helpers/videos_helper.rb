@@ -15,10 +15,10 @@ module VideosHelper
       video.url.gsub(%r{https?://rutube.ru/video}) { "https://rutube.ru/play/embed/#{Regexp.last_match(1)}" }
     elsif video.url.include?("youku")
       video.url.sub!(/(?=.html)(.*)/, '')
-      video.url.gsub(%r{https?://v.youku.com/v_show/id_}) { "http://player.youku.com/embed/#{Regexp.last_match(1)}" }
+      video.url.gsub(%r{https?://v.youku.com/v_show/id_}) { "https://player.youku.com/embed/#{Regexp.last_match(1)}" }
     elsif video.url.include?("metacafe")
       video.url.sub!(/(?=.html)(.*)/, '')
-      video.url.gsub(%r{https?://www.metacafe.com/watch}) { "http://www.metacafe.com/embed#{Regexp.last_match(1)}" }
+      video.url.gsub(%r{https?://www.metacafe.com/watch}) { "https://www.metacafe.com/embed#{Regexp.last_match(1)}" }
     end
   end
 end

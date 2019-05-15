@@ -34,6 +34,7 @@ class Video < ApplicationRecord
     url.gsub!('https://youtu.be/', 'https://www.youtube.com/watch?v=') if %r{https?://?youtu.be}.match?(url)
     url.gsub!(/https?:\/\/nico.ms/, 'https://www.nicovideo.jp/watch') if %r{https?://?nico.ms}.match?(url)
     url.gsub!('https://dai.ly', 'https://www.dailymotion.com/video') if %r{https?://?dai.ly}.match?(url)
+    url.gsub!(/https?:\/\/www.pandora.tv/, 'https://www.pandora.tv') if %r{https?://?www.pandora.tv}.match?(url)
 
     if %r{\Ahttps?://(?:www\.)?youtube.com/watch\?(?=.*v=\w+)(?:\S+)?\z}.match?(url) ||
        %r{https?://(?:www\.)?nicovideo.jp/watch}.match?(url) ||
