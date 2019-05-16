@@ -1,3 +1,209 @@
 // Place all the styles related to the toppages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+@import "font-awesome";
+
+
+// body {
+//   background-color: #EDF4FB;
+//   font-family: 'Montserrat', sans-serif;
+//   font-weight: 900;
+//   font-size: 14px;
+//   color: #555;
+//   -webkit-font-smoothing: antialiased;
+//   -webkit-overflow-scrolling: touch;
+// }
+
+// /* Titles */
+
+// h1, h2, h3, h4, h5, h6 {
+//   font-family: 'Montserrat', sans-serif;
+//   font-weight: 700;
+//   color: #333;
+// }
+
+// h1 {
+//   font-size: 35px;
+//   margin-top: 30px;
+//   margin-bottom: 30px;
+// }
+
+// /* Paragraph & Typographic */
+
+// p {
+//   line-height: 28px;
+//   margin-bottom: 25px;
+//   font-size: 16px;
+// }
+
+// .centered {
+//   text-align: center;
+// }
+
+// /* Links */
+
+// a {
+//   color: #1abc9c;
+//   word-wrap: break-word;
+//   -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+//   -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+//   -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+//   -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+//   transition: color 0.1s ease-in, background 0.1s ease-in;
+// }
+
+// a:hover, a:focus {
+//   color: #7b7b7b;
+//   text-decoration: none;
+//   outline: 0;
+// }
+
+// a:before, a:after {
+//   -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+//   -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+//   -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+//   -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+//   transition: color 0.1s ease-in, background 0.1s ease-in;
+// }
+
+// hr {
+//   display: block;
+//   height: 1px;
+//   border: 0;
+//   border-top: 1px solid #ccc;
+//   margin: 1em 0;
+//   padding: 0;
+// }
+
+// .navbar {
+//   text-transform: uppercase;
+//   margin-bottom: 0px;
+// }
+
+// .navbar-inverse {
+//   padding: 30px 0;
+// }
+
+// @media (max-width: 768px ) {
+//   .navbar-inverse {
+//     padding: 15px 0;
+//   }
+// }
+// .navbar-inverse {
+//   background-color: #1abc9c;
+//   border-color: #16a085;
+// }
+
+// .navbar-inverse .navbar-nav>li>a {
+//   color: white;
+// }
+
+// .navbar-inverse .navbar-nav>li>a:hover {
+//   color: #222222;
+// }
+
+// .navbar-brand {
+//   font-weight: 700;
+//   font-size: 20px;
+//   letter-spacing: 2px;
+// }
+
+// .navbar-inverse .navbar-brand {
+//   color: white;
+// }
+
+// .navbar-inverse .navbar-toggle {
+//   border-color: transparent;
+// }
+
+// .progress-bar-theme {
+//   background-color: #1abc9c;
+// }
+
+// /* Helpers */
+
+// .mt {
+//   margin-top: 40px;
+//   margin-bottom: 40px;
+// }
+
+// .pt {
+//   padding-top: 50px;
+//   padding-bottom: 50px;
+// }
+
+// コンセプト
+.toppage_btn{
+  margin-top: 70px;
+}
+.concept {
+  background-image: linear-gradient(-90deg, #00F6FF, #00A1FF);
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.feture_box{
+  text-align: center;
+}
+.needs_wrapper{
+  margin: 0 12%;
+}
+
+.concept h1 {
+  font-weight: 700;
+  text-align: center;
+}
+
+.concept h2 {
+  font-weight: 600;
+  text-align: center;
+}
+
+.concept h4 {
+  font-weight: 600;
+  text-align: center;
+}
+
+.concept h5 {
+  font-weight: 600;
+  margin: 0 20%;
+}
+
+// フィーチャー
+.star{
+  color: #FAF200;
+}
+
+.feature{
+  font-weight: 600;
+}
+
+.feature-header{
+  padding-left: 350px;
+  padding-right: 350px;
+}
+
+/* Copyrights */
+
+#copyrights {
+  background-color: #EDF4FB;
+  padding: 20px 0;
+  text-align: center;
+}
+
+#copyrights p {
+  margin-bottom: 5px;
+  color: black;
+}
+
+#copyrights a {
+  color: #1abc9c;
+}
+
+.credits {
+  color: #999;
+}
+
+
