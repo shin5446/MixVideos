@@ -40,7 +40,7 @@ class Video < ApplicationRecord
        %r{https?://(?:www\.)?dailymotion.com/video}.match?(url) ||
        %r{https?://(?:www\.)?vimeo.com}.match?(url) ||
        %r{https?://(?:www\.)?rutube.ru/video}.match?(url) ||
-       %r{https?://(?:www\.)?v.youku.com/v_show}.match?(url) ||
+       %r{https?://(?:www\.)?v.youku.com/v_show}.match?(url)
 
       uri = URI.parse(url)
       request = Net::HTTP::Head.new(uri)
