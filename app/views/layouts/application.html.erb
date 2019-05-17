@@ -79,7 +79,7 @@
         </nav>
       </header>
       <div>
-        <div class="flash time-limit">
+        <div class="flash time-limit text-center">
           <% flash.each do |key, value| %>
             <% if key == "danger" %>
               <%= content_tag(:div, value, class: "#{key} alert alert-danger") %>
