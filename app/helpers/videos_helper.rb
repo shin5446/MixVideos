@@ -7,8 +7,6 @@ module VideosHelper
       video.url.gsub(%r{https?://www.nicovideo.jp/watch}) { "https://embed.nicovideo.jp/watch#{Regexp.last_match(1)}" }
     elsif video.url.include?('dailymotion')
       video.url.gsub(%r{https?://www.dailymotion.com/video}) { "https://www.dailymotion.com/embed/video#{Regexp.last_match(1)}" }
-    elsif video.url.include?('pandora')
-      video.url.gsub(/(?=#)(?:.*)/) { 'embed' }
     elsif video.url.include?('vimeo')
       video.url.gsub(%r{https?://vimeo.com}) { "https://player.vimeo.com/video#{Regexp.last_match(1)}" }
     elsif video.url.include?('rutube')
@@ -16,9 +14,6 @@ module VideosHelper
     elsif video.url.include?('youku')
       video.url.sub!(/(?=.html)(.*)/, '')
       video.url.gsub(%r{https?://v.youku.com/v_show/id_}) { "https://player.youku.com/embed/#{Regexp.last_match(1)}" }
-    elsif video.url.include?('metacafe')
-      video.url.sub!(/(?=.html)(.*)/, '')
-      video.url.gsub(%r{https?://www.metacafe.com/watch}) { "https://www.metacafe.com/embed#{Regexp.last_match(1)}" }
     end
   end
 end

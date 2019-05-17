@@ -21,9 +21,7 @@ Service.create([
   {name: 'Youtube'},
   {name: 'ニコニコ動画'},
   {name: 'Dailymotion'},
-  {name: 'Pandora'},
   {name: 'Vimeo'},
   {name: 'Rutube'},
-  {name: 'Youku'},
-  {name: 'Metacafe'}
+  {name: 'Youku'}
 ])
