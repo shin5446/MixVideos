@@ -3,13 +3,25 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // コンセプト
+.toppage_btn_wrapper{
+  margin-bottom: 50px;
+}
 .toppage_btn{
-  margin-top: 70px;
+  width: 250px !important;
+  border: 0px !important;
+  font-size: 1.25rem !important;
+}
+.toppage_btn:hover{
+  color: black !important;
+  background-color: #fff !important;
 }
 .concept {
-  background-image: linear-gradient(-90deg, #00F6FF, #00A1FF);
-  padding-top: 70px;
-  padding-bottom: 70px;
+    background: linear-gradient(135deg, rgba(44, 190, 209, 0.8), rgba(41, 89, 179, 0.8)), image-url("video-share_02.png") no-repeat;
+    color: #fff;
+    background-size:cover
+}
+.concept_text{
+  text-shadow:2px 4px 3px #09346d;
 }
 
 .feture_box{
@@ -46,11 +58,6 @@
 
 .feature{
   font-weight: 600;
-}
-
-.feature-header{
-  padding-left: 350px;
-  padding-right: 350px;
 }
 
 /* Copyrights */

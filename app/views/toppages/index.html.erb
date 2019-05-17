@@ -3,24 +3,24 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12 concept">
-            <h1>Lit Tube</h1><br>
-          <h4>大手動画共有サイトを利用していて、こんな事を思ったことはありませんか？</h4><br><br>
-          <div class="needs_wrapper">
-            <h5>● 動画専用のタイムラインに自分の推したい動画を共有したい！！</h5><br>
-            <h5>● 複数の大手動画サイトのお気に入り動画を一つのサイトで閲覧したい！！</h5><br>
-            <h5>● 動画サイトの枠を超えて動画好きの人たちと繋がりたい！！</h5><br><br>
+          <div class="concept_text">
+          <br><br><br><br><br>
+          <h1>色んなサービスの動画を共有しよう</h1><br>
+          <br><br><br><br>
+          <h4>LittubeではYoutubeをはじめとした大手動画サービスの動画を投稿、閲覧が可能。</h4><br>
+          <h4>あなたのお気に入りのサービスのお気に入りの動画をみんなで共有しよう</h4>
+          <br><br><br><br>
           </div>
-          <h2>そんなニーズをLitTubeは全て満たします！！</h2>
           <% unless current_user %>
-            <div class="row toppage_btn text-center">
-              <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-                <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-dark w-50" %>
+            <div class="row text-center toppage_btn_wrapper">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-dark toppage_btn my-3 py-2" %>
               </div>
-              <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-                <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-dark w-50" %>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-dark toppage_btn my-3 py-2" %>
               </div>
-              <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-                <%= link_to "動画だけ見る", videos_path, class: "btn btn-outline-dark w-50" %>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+                <%= link_to "動画だけ見る", videos_path, class: "btn btn-outline-dark toppage_btn my-3 py-2" %>
               </div>
             </div>
           <% end %>
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div class="container-fluid feature p-4">
+    <div class="container feature p-4">
       <div class="row mb-5">
         <div class="feature-header">
           <div class="col-lg-12 text-center">
