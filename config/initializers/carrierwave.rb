@@ -18,10 +18,10 @@ CarrierWave.configure do |config|
 
   case Rails.env
     when 'production'
-      config.fog_directory = 'MixVideos-production'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/MixVideos-production'
+      config.fog_directory = 'mixvideos-production'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/mixvideos-production'
     when 'development'
-      config.fog_directory = 'MixVideos-development'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/MixVideos-development'
+      config.fog_directory = 'mixvideos-development'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/mixvideos-development'
   end
 end
