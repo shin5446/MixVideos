@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 concept">
+      <div class="concept_text">
+      <br><br><br><br><br>
+      <h1>色んなサービスの動画を共有しよう</h1><br>
+      <br><br><br><br>
+      <h4>MixVideosではYoutubeをはじめとした大手動画サービスの動画を投稿、閲覧が可能。</h4><br>
+      <h4>あなたのお気に入りのサービスのお気に入りの動画をみんなで共有しよう</h4>
+      <br><br><br><br>
+      </div>
+      <% unless current_user %>
+        <div class="row text-center toppage_btn_wrapper">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+            <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-dark toppage_btn my-3 py-2" %>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+            <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-dark toppage_btn my-3 py-2" %>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+            <%= link_to "動画だけ見る", videos_path, class: "btn btn-outline-dark toppage_btn my-3 py-2" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
