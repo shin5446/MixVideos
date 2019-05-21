@@ -44,8 +44,10 @@
       </div>
     </div>
   </div>
-  <div>
-    <div id="comments_area"><%= render partial: 'comments/index', locals: { comments: @comments, video: @video } %></div>
+  <div id="comments_area">
+    <%= render partial: 'comments/index', locals: { comments: @comments, video: @video } %>
+  </div>
+  <div style="text-align: center">
     <%= render partial: 'comments/form', locals: { comment: @comment, video: @video } %>
   </div>
 </div>
