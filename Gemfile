@@ -41,6 +41,8 @@ gem 'acts-as-taggable-on'
 # AWSデプロイ関連
 gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
 
 
 group :development, :test do
