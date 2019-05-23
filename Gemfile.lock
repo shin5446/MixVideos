@@ -61,6 +61,7 @@ GEM
     autoprefixer-rails (9.5.1.1)
       execjs
     bcrypt (3.1.12)
+    bcrypt_pbkdf (1.0.1)
     better_errors (2.5.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -138,6 +139,7 @@ GEM
     dotenv-rails (2.7.2)
       dotenv (= 2.7.2)
       railties (>= 3.2, < 6.1)
+    ed25519 (1.2.4)
     erubi (1.8.0)
     excon (0.64.0)
     execjs (2.7.0)
@@ -425,6 +427,7 @@ DEPENDENCIES
   active_link_to
   acts-as-taggable-on
   bcrypt (~> 3.1.7)
+  bcrypt_pbkdf
   better_errors
   binding_of_caller
   bootsnap (>= 1.1.0)
@@ -444,6 +447,7 @@ DEPENDENCIES
   database_cleaner
   devise
   dotenv-rails
+  ed25519
   factory_bot_rails
   fog-aws
   font-awesome-rails
