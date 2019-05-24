@@ -1,17 +1,3 @@
-# config valid only for current version of Capistrano
-lock '3.6.0'
-
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
-
-# Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-
-# Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/var/www/my_app_name'
-
-# Default value for :scm is :git
-# set :scm, :git# config valid only for current version of Capistrano
 lock '3.6.0'
 
 # デプロイするアプリケーション名
@@ -94,7 +80,16 @@ end
 # append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
 
 # Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  GOOGLE_APP_ID: ENV["GOOGLE_APP_ID"],
+  GOOGLE_APP_SECRET: ENV["GOOGLE_APP_SECRET"],
+  SENDGRID_PASSWORD: ENV["SENDGRID_PASSWORD"],
+  SENDGRID_USERNAME: ENV["SENDGRID_USERNAME"],
+  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+}
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
