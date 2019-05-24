@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'dotenv-rails'
 
 # ログイン関連
 gem 'devise'
@@ -73,7 +74,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
   gem 'letter_opener_web'
-  gem 'dotenv-rails'
 end
 
 group :test do
