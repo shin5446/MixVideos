@@ -63,16 +63,6 @@ namespace :deploy do
   end
 end
 
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'unicorn:stop'
-      invoke 'unicorn:start'
-    end
-  end
-end
-
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
