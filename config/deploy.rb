@@ -80,7 +80,16 @@ end
 # append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
 
 # Default value for default_env is {}
-set :default_env, { path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" }
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  GOOGLE_APP_ID: ENV["GOOGLE_APP_ID"],
+  GOOGLE_APP_SECRET: ENV["GOOGLE_APP_SECRET"],
+  SENDGRID_PASSWORD: ENV["SENDGRID_PASSWORD"],
+  SENDGRID_USERNAME: ENV["SENDGRID_USERNAME"],
+  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+}
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
