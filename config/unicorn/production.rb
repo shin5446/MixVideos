@@ -31,3 +31,7 @@ end
 after_fork do |server, worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
 end
+
+before_exec do
+  Dotenv.overload
+end
