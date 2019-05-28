@@ -10,9 +10,9 @@
     </div>
   <% end %>
   <% if current_user.try(:id) %>
-    <div class="field">
+    <div class="field comment_form">
       <%= form.label :コメントを作成する %>
-      <%= form.text_area :content,required: true, class: "form-control my-2 mx-auto", style:"width: 50%;", rows: 3 %>
+      <%= form.text_area :content,required: true, class:"form-control my-2 mx-auto", rows: 3 %>
     </div>
 
     <div class="actions">

@@ -548,3 +548,18 @@ right: 10px !important;
 .back_btn{
   width: 150px;
 }
+
+.comment_form{
+  @media (min-width: 769px) {
+    .form-control{
+      width: 50% !important;
+    }
+  }
+}
+.comment_form{
+  @media (max-width: 768px) {
+    .form-control{
+      width: 100% !important;
+    }
+  }
+}
