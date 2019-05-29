@@ -25,6 +25,7 @@ class Video < ApplicationRecord
   scope :sort_created_at, -> { order(created_at: :desc) }
   scope :sort_genre, ->(genre_id) { where(id: genre_ids = VideoGenre.where(genre_id: genre_id).select(:video_id)) }
   scope :sort_service, ->(service_id) { where(service_id: service_id) }
+  scope :sort_public_videos, ->{ where(status: "公開") }
   # ユーザーがいいねをしているか判定
   def like?(video, user)
     video.likes.find_by(user_id: user.id)
