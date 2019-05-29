@@ -2,6 +2,7 @@ class VideosController < ApplicationController
   before_action :set_video, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new edit update destroy]
   before_action :correct_user, only: %i[edit destroy]
+  before_action :correct_user_for_private_videos, only: %i[show]
   PER_PAGE = 4
 
   def index
@@ -75,6 +76,16 @@ class VideosController < ApplicationController
     unless current_user.id == @video.user_id
       flash[:danger] = '他人の投稿は編集できません'
       redirect_to videos_path
+    end
+  end
+
+  def correct_user_for_private_videos
+    if @video.非公開?
+      unless current_user.id == @video.user_id
+        respond_to do |format|
+          format.html { render file: "#{Rails.root}/public/404", layout: false, status: :not_found }
+        end
+      end
     end
   end
 end
