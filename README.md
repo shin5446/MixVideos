@@ -1,8 +1,8 @@
 # MixVideos
 ## 概要
-世の中には多くの動画共有サイトがたくさん、動画数が多すぎて探しきれない素晴らしい動画が実はたくさんあります。そこであなたが共有せずにはいられないと思うYoutube動画をMixVideosで共有しあう事で、隠れた素晴らしい動画を見つけましょう。
+世の中にはYouTubeをはじめとした多くの動画共有サイトがあり、素晴らしい動画がネット上にたくさん転がっています。しかしあまりにも動画が多いので埋もれている動画があるのも事実です。MixVideosで共有しあう事で、隠れた素晴らしい動画を見つけましょう。
 ## コンセプト
-YouTubeだけで見つけられなかった動画の発掘
+埋もれている素晴らしい動画の発掘
 ## バージョン
 Ruby 2.6.1 Rails 5.2.3
 ## 機能一覧
@@ -30,7 +30,7 @@ Ruby 2.6.1 Rails 5.2.3
 https://docs.google.com/spreadsheets/d/1dspoiBATLqBsd1QHXva7dBNUifcVl8AEQ3AXk_k1nXA/edit?usp=sharing
 ## 画面遷移図/ワイヤーフレーム
 https://docs.google.com/spreadsheets/d/101TvCII4AhHzM8b-yviuDSTmcxbcXc8C2jm7jbQmjfA/edit?usp=sharing
-## 使用予定Gem
+## 使用Gem
 + devise
 + googleauth
 + acts-as-taggable-on
@@ -40,3 +40,4 @@ https://docs.google.com/spreadsheets/d/101TvCII4AhHzM8b-yviuDSTmcxbcXc8C2jm7jbQm
 + minimagick
 + kaminari
 + rubocop
++ active_link_to
