@@ -3,7 +3,7 @@ class Video < ApplicationRecord
   require 'uri'
 
   # 公開設定関連
-  enum status:{ private: 0, public: 1 }
+  enum status: { unpublish: 0, publish: 1 }
 
   # タグ関連
   acts_as_taggable
