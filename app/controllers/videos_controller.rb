@@ -3,7 +3,7 @@ class VideosController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit update destroy]
   before_action :correct_user, only: %i[edit destroy]
   before_action :correct_user_for_private_videos, only: %i[show]
-  PER_PAGE = 4
+  PER_PAGE = 10
 
   def index
     @genres = Genre.all
