@@ -2,12 +2,13 @@ class VideosController < ApplicationController
   before_action :set_video, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new edit update destroy]
   before_action :correct_user, only: %i[edit destroy]
-  PER_PAGE = 4
+  before_action :correct_user_for_private_videos, only: %i[show]
+  PER_PAGE = 10
 
   def index
     @genres = Genre.all
     @services = Service.all
-    @tags = Video.all_tags.order(taggings_count: :desc)
+    @tags = Video.sort_public_videos.all_tags.order(taggings_count: :desc)
     @q = Video.ransack(params[:q])
     @videos = if params[:sort_like]
                 Video.sort_like
@@ -33,7 +34,7 @@ class VideosController < ApplicationController
   def create
     @video = current_user.videos.build(video_params)
     if @video.save
-      redirect_to videos_path flash[:success] = '動画を投稿しました'
+      redirect_to videos_path flash[:success] = '動画を保存しました'
     else
       render 'new'
     end
@@ -58,13 +59,13 @@ class VideosController < ApplicationController
 
   def destroy
     @video.destroy
-    redirect_to videos_path flash[:success] = '投稿を削除しました'
+    redirect_to videos_path flash[:success] = '動画を削除しました'
   end
 
   private
 
   def video_params
-    params.require(:video).permit(:title, :content, :url, :image, :image_cache, :user_id, :video_id, :tag_list, :service_id, genre_ids: [])
+    params.require(:video).permit(:title, :content, :url, :image, :image_cache, :user_id, :video_id, :tag_list, :service_id, :status, genre_ids: [])
   end
 
   def set_video
@@ -75,6 +76,16 @@ class VideosController < ApplicationController
     unless current_user.id == @video.user_id
       flash[:danger] = '他人の投稿は編集できません'
       redirect_to videos_path
+    end
+  end
+
+  def correct_user_for_private_videos
+    if @video.非公開?
+      unless current_user.id == @video.user_id
+        respond_to do |format|
+          format.html { render file: "#{Rails.root}/public/404", layout: false, status: :not_found }
+        end
+      end
     end
   end
 end

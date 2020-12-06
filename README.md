@@ -1,8 +1,8 @@
-# Lit Tube
+# MixVideos
 ## 概要
-YouTubeは今や誰もが知っている動画共有サイトですが、動画数が多すぎて探しきれない素晴らしい動画が実はたくさんあります。そこであなたが共有せずにはいられないと思うYoutube動画をLitTubeで共有しあう事で、隠れた素晴らしい動画を見つけましょう。
+世の中にはYouTubeをはじめとした多くの動画共有サイトがあり、もう一度見たい動画をお気に入りとして保存しておくことができますが、それぞれのサイトに飛ばなくては見れません。MixVideosは複数の大手動画サイトの動画を保存して一括で管理することができ、さらに保存した動画を共有することができるサービスです。
 ## コンセプト
-YouTubeだけで見つけられなかった動画の発掘
+複数の動画サービスの動画を一括管理、保存した動画をタイムラインに公開することで他のユーザーがどこのサービスのどんな動画を見ているかを可視化。
 ## バージョン
 Ruby 2.6.1 Rails 5.2.3
 ## 機能一覧
@@ -13,13 +13,13 @@ Ruby 2.6.1 Rails 5.2.3
 + フォローフォロワー機能
 + パスワード再設定機能
 ### 動画投稿機能
-+ youtube動画の投稿
-  + 任意のYouTube動画を投稿できる
-  + 投稿の編集、削除ができる
++ 動画の保存
+  + 任意の大手動画サービスの動画を保存できる
+  + 保存した動画の編集、削除ができる
 + コメント機能
-  + 投稿されている動画にコメントができる
+  + 公開されている動画にコメントができる
 + いいね機能
-  + 投稿されている動画にコメントができる
+  + 公開されている動画にコメントができる
 + 動画検索機能
   + タイトルで動画を検索できる
   + カテゴリーで動画を検索できる
@@ -30,7 +30,7 @@ Ruby 2.6.1 Rails 5.2.3
 https://docs.google.com/spreadsheets/d/1dspoiBATLqBsd1QHXva7dBNUifcVl8AEQ3AXk_k1nXA/edit?usp=sharing
 ## 画面遷移図/ワイヤーフレーム
 https://docs.google.com/spreadsheets/d/101TvCII4AhHzM8b-yviuDSTmcxbcXc8C2jm7jbQmjfA/edit?usp=sharing
-## 使用予定Gem
+## 使用Gem
 + devise
 + googleauth
 + acts-as-taggable-on
@@ -40,3 +40,4 @@ https://docs.google.com/spreadsheets/d/101TvCII4AhHzM8b-yviuDSTmcxbcXc8C2jm7jbQm
 + minimagick
 + kaminari
 + rubocop
++ active_link_to

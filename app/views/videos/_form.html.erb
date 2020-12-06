@@ -29,6 +29,8 @@
         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
           <div class="card h-100">
             <div class="card-body position-relative">
+              <%= form.label :公開範囲 %>&emsp;<span class="badge badge-danger">必須</span><br>
+              <%= form.select :status, Video.statuses.keys %><br>
               <%= form.label :サービス %>&emsp;<span class="badge badge-danger">必須</span><br>
               <%= form.collection_radio_buttons :service_id, Service.all, :id, :name, include_hidden: false %><br>
               <%= form.label :ジャンル %><br>

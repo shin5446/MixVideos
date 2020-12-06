@@ -9,7 +9,7 @@
             <td> フォロー</td>
             <td>フォロワー</td>
           <tr style="text-align: center">
-            <td><%= @user.videos.count %></td>
+            <td><%= @user == current_user ? @user.videos.count : @user.videos.sort_public_videos.count %></td>
             <td><%= @user.following.count %></td>
             <td><%= @user.followers.count %></td>
           </tr>

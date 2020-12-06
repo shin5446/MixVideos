@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'dotenv-rails'
 
 # ログイン関連
 gem 'devise'
@@ -38,6 +39,12 @@ gem 'ransack'
 gem 'counter_culture', '~> 2.0'
 # タグ関連
 gem 'acts-as-taggable-on'
+# AWSデプロイ関連
+gem 'unicorn'
+gem 'mini_racer', platforms: :ruby
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
+
 
 group :development, :test do
   # デバッグ関連
@@ -52,6 +59,12 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'launchy'
   gem 'spring-commands-rspec'
+  # capistrano関連
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -61,7 +74,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
   gem 'letter_opener_web'
-  gem 'dotenv-rails'
 end
 
 group :test do

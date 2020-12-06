@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Littube</title>
+    <title>MixVideos</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width">
@@ -9,90 +9,16 @@
     <%= stylesheet_link_tag    'application', "data-turbolinks-track" => true, media: 'all' %>
     <%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <%= favicon_link_tag('mixvideos_favicon.ico') %>
   </head>
 
   <body>
-    <div class="wrap">
-      <header style="background-color: #EDF4FB">
-        <nav class="navbar navbar-expand-sm">
-          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
-            <%= fa_icon ("bars") %><br>
-            <span style="font-size: 10px">MENU</span>
-          </button>
-          <div class="collapse navbar-collapse" id="Navber">
-            <ul class="navbar-nav text-dark">
-              <% if current_user.try(:admin?) %>
-                <li class="nav-item">
-                  <%= active_link_to "管理者メニュー", "/admin", class: "nav-link text-danger" %>
-                </li>
-              <% end %>
-              <% if user_signed_in? %>
-                <li class="nav-item" >
-                  <%= active_link_to user_path(current_user.id, type: "post"), class: "nav-link text-dark" do %>
-                    <i class="fas fa-user"> マイページ</i>
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= active_link_to videos_path, class: "nav-link text-dark", active: :exclusive do %>
-                    <i class="fas fa-video"> 動画一覧</i>
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= active_link_to tags_path, class: "nav-link text-dark" do %>
-                    <i class="fas fa-tags"> タグ一覧</i>
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= active_link_to users_path, class: "nav-link text-dark", active: :exclusive do %>
-                  <i class="fas fa-user-friends"> ユーザー一覧</i>
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= active_link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
-                    <i class="fas fa-sign-out-alt"> ログアウト</i>
-                  <% end %>
-                </li>
-              <% else %>
-                <li class="nav-item">
-                  <%= active_link_to new_user_session_path, class: "nav-link text-dark" do %>
-                    <i class="fas fa-sign-in-alt"> ログイン</i>
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= active_link_to new_user_registration_path, class: "nav-link text-dark" do %>
-                    <i class="fas fa-user-plus"> 新規登録</i>
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= active_link_to videos_path, class: "nav-link text-dark" do %>
-                    <i class="fas fa-video"> 動画一覧</i>
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= active_link_to tags_path, class: "nav-link text-dark" do %>
-                    <i class="fas fa-tags"> タグ一覧</i>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </nav>
-      </header>
-      <div>
-        <div class="flash time-limit">
-          <% flash.each do |key, value| %>
-            <% if key == "danger" %>
-              <%= content_tag(:div, value, class: "#{key} alert alert-danger") %>
-            <% elsif key == "edit" %>
-              <%= content_tag(:div, value, class: "#{key} alert alert-success") %>
-            <% elsif %>
-              <%= content_tag(:div, value, class: "#{key} alert alert-primary") %>
-            <% end %>
-          <% end %>
-        </div>
-            <%= yield %>
-      </div>
-    </div>
+    <%=render 'layouts/header' %>
+
+    <%=render 'layouts/flash' %>
+
+    <%= yield %>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
   </body>
