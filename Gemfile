@@ -16,7 +16,7 @@ gem 'dotenv-rails'
 # ログイン関連
 gem 'devise'
 gem 'bcrypt', '~> 3.1.7'
-gem 'rails_admin', '~> 1.3'
+gem 'rails_admin', '~> 1.4'
 gem 'cancancan'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
